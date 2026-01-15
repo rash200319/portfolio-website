@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Database Design Principles: SQL vs NoSQL | Rashmi Paboda</title>
+
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .article-header {
+      margin-bottom: 2rem;
+    }
+    .article-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #2d3748;
+    }
+    .article-meta {
+      color: #718096;
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-content {
+      line-height: 1.8;
+      color: #4a5568;
+    }
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+    .tag {
+      background: #ebf8ff;
+      color: #2b6cb0;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: #4299e1;
+      margin-bottom: 2rem;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    th, td {
+      border: 1px solid #e2e8f0;
+      padding: 0.75rem;
+      text-align: left;
+    }
+    th {
+      background-color: #f7fafc;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-brand">&lt;RashmiPaboda /&gt;</a>
+      <div class="nav-menu">
+        <a href="../index.html#hero" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#articles" class="nav-link">Articles</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="article-container">
+    <a href="../index.html#articles" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+        <path d="M19 12H5M12 19l-7-7 7-7"></path>
+      </svg>
+      Back to Articles
+    </a>
+
+    <article class="article-content">
+      <header class="article-header">
+        <h1 class="article-title">Database Design Principles: SQL vs NoSQL</h1>
+        <div class="article-meta">
+          <span>January 2026</span>
+          <span>•</span>
+          <span>12 min read</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Databases</span>
+          <span class="tag">SQL</span>
+          <span class="tag">NoSQL</span>
+          <span class="tag">System Design</span>
+        </div>
+      </header>
+
+      <section>
+        <h2>Introduction</h2>
+        <p>
+          Choosing the right database is one of the most important architectural decisions in software development.
+          The decision between SQL and NoSQL databases directly impacts scalability, performance, and long-term maintainability.
+        </p>
+        <p>
+          This article compares relational and non-relational databases, explains when to use each, and highlights key
+          design principles developers should consider.
+        </p>
+      </section>
+
+      <section>
+        <h2>What Is a Relational (SQL) Database?</h2>
+        <p>
+          SQL databases store data in structured tables with predefined schemas. Relationships between data are enforced
+          using keys and constraints.
+        </p>
+        <p>Common SQL databases include:</p>
+        <ul>
+          <li>MySQL</li>
+          <li>PostgreSQL</li>
+          <li>SQL Server</li>
+          <li>Oracle</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>What Is a NoSQL Database?</h2>
+        <p>
+          NoSQL databases are designed for flexibility and scalability. They do not rely on fixed schemas and support
+          various data models.
+        </p>
+        <p>Common NoSQL types include:</p>
+        <ul>
+          <li>Document databases (MongoDB)</li>
+          <li>Key-value stores (Redis)</li>
+          <li>Wide-column stores (Cassandra)</li>
+          <li>Graph databases (Neo4j)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Key Differences: SQL vs NoSQL</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>SQL</th>
+              <th>NoSQL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Schema</td>
+              <td>Fixed, predefined</td>
+              <td>Flexible, dynamic</td>
+            </tr>
+            <tr>
+              <td>Scalability</td>
+              <td>Vertical scaling</td>
+              <td>Horizontal scaling</td>
+            </tr>
+            <tr>
+              <td>Transactions</td>
+              <td>Strong ACID guarantees</td>
+              <td>Eventual consistency (often)</td>
+            </tr>
+            <tr>
+              <td>Relationships</td>
+              <td>Strong relational integrity</td>
+              <td>Handled at application level</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>When to Use SQL</h2>
+        <ul>
+          <li>Applications with complex relationships</li>
+          <li>Financial or transactional systems</li>
+          <li>Data integrity is critical</li>
+          <li>Structured and predictable data</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>When to Use NoSQL</h2>
+        <ul>
+          <li>High-traffic applications</li>
+          <li>Rapidly changing data models</li>
+          <li>Large-scale distributed systems</li>
+          <li>Real-time analytics or caching</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Key Database Design Principles</h2>
+        <ul>
+          <li>Design for access patterns, not just storage</li>
+          <li>Normalize data where consistency matters</li>
+          <li>Denormalize when performance is critical</li>
+          <li>Plan for scaling early</li>
+          <li>Index strategically</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Common Mistakes</h2>
+        <ul>
+          <li>Choosing NoSQL without a scaling requirement</li>
+          <li>Over-normalizing SQL databases</li>
+          <li>Ignoring query performance</li>
+          <li>Using one database for all workloads</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Key Takeaways</h2>
+        <p>
+          SQL and NoSQL databases solve different problems. There is no universal best choice — only the right tool
+          for a specific use case.
+        </p>
+        <p>
+          Understanding data access patterns, consistency needs, and scalability requirements is essential
+          for making informed database design decisions.
+        </p>
+      </section>
+    </article>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>

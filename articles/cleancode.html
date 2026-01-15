@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clean Code Practices Every Developer Should Know | Rashmi Paboda</title>
+
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .article-header {
+      margin-bottom: 2rem;
+    }
+    .article-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #2d3748;
+    }
+    .article-meta {
+      color: #718096;
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-content {
+      line-height: 1.8;
+      color: #4a5568;
+    }
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+    .tag {
+      background: #ebf8ff;
+      color: #2b6cb0;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: #4299e1;
+      margin-bottom: 2rem;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-brand">&lt;RashmiPaboda /&gt;</a>
+      <div class="nav-menu">
+        <a href="../index.html#hero" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#articles" class="nav-link">Articles</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="article-container">
+    <a href="../index.html#articles" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+        <path d="M19 12H5M12 19l-7-7 7-7"></path>
+      </svg>
+      Back to Articles
+    </a>
+
+    <article class="article-content">
+      <header class="article-header">
+        <h1 class="article-title">Clean Code Practices Every Developer Should Know</h1>
+        <div class="article-meta">
+          <span>December 10, 2025</span>
+          <span>•</span>
+          <span>7 min read</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Best Practices</span>
+          <span class="tag">Clean Code</span>
+          <span class="tag">Programming</span>
+          <span class="tag">Software Engineering</span>
+        </div>
+      </header>
+
+      <section>
+        <h2>Introduction</h2>
+        <p>
+          Writing clean, maintainable code is a skill every developer should master. Clean code reduces bugs,
+          improves readability, and makes collaboration smoother.
+        </p>
+        <p>
+          This article covers essential coding principles and patterns that help developers write professional,
+          maintainable code.
+        </p>
+      </section>
+
+      <section>
+        <h2>Key Principles of Clean Code</h2>
+        <ul>
+          <li><strong>Meaningful Names:</strong> Use descriptive names for variables, functions, and classes.</li>
+          <li><strong>Single Responsibility:</strong> Each function or class should have one clear purpose.</li>
+          <li><strong>Keep It Simple:</strong> Avoid unnecessary complexity in logic and structure.</li>
+          <li><strong>Readable Code:</strong> Write code that others (and future you) can easily understand.</li>
+          <li><strong>Consistent Formatting:</strong> Follow a consistent style guide and naming conventions.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Common Clean Code Practices</h2>
+        <ul>
+          <li>Write small, focused functions</li>
+          <li>Use comments sparingly; let code explain itself</li>
+          <li>Avoid code duplication</li>
+          <li>Refactor regularly to improve clarity</li>
+          <li>Write automated tests for critical functionality</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Tools and Techniques</h2>
+        <ul>
+          <li>Linters and formatters (ESLint, Prettier)</li>
+          <li>Static analysis tools (SonarQube, CodeClimate)</li>
+          <li>Code reviews for collaborative improvement</li>
+          <li>Design patterns to solve recurring problems elegantly</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Key Takeaways</h2>
+        <p>
+          Clean code is about clarity, simplicity, and maintainability. Following best practices ensures that
+          your code is easy to read, easy to test, and less prone to bugs.
+        </p>
+        <p>
+          Investing time in writing clean code pays off in long-term productivity and project success.
+        </p>
+      </section>
+    </article>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>

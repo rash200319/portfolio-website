@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building a 3D Solar System with Three.js | Rashmi Paboda</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+  <style>
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .article-header {
+      margin-bottom: 2rem;
+    }
+    .article-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #2d3748;
+    }
+    .article-meta {
+      color: #718096;
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-content {
+      line-height: 1.8;
+      color: #4a5568;
+    }
+    .article-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    .article-content pre {
+      background: #2d3748;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+    .article-content code {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9em;
+    }
+    
+    .screenshot-container {
+      margin: 2rem 0;
+      text-align: center;
+    }
+    
+    .article-screenshot {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+    }
+    
+    .screenshot-caption {
+      margin-top: 0.5rem;
+      font-size: 0.9em;
+      color: #64748b;
+      font-style: italic;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: #4299e1;
+      margin-bottom: 2rem;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+    .tag {
+      background: #ebf8ff;
+      color: #2b6cb0;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-brand">
+        &lt;RashmiPaboda /&gt;
+      </a>
+      <div class="nav-menu">
+        <a href="../index.html#hero" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#articles" class="nav-link">Articles</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="article-container">
+    <a href="../index.html#articles" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+        <path d="M19 12H5M12 19l-7-7 7-7"></path>
+      </svg>
+      Back to Articles
+    </a>
+
+    <article class="article-content">
+      <header class="article-header">
+        <h1 class="article-title">Building a 3D Solar System with Three.js</h1>
+        <div class="article-meta">
+          <span>January 14, 2026</span>
+          <span>•</span>
+          <span>10 min read</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Three.js</span>
+          <span class="tag">WebGL</span>
+          <span class="tag">3D Graphics</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </header>
+
+      <section>
+        <h2>Introduction</h2>
+        <p>Creating a 3D solar system was an exciting journey into the world of WebGL and 3D graphics. In this article, I'll walk you through how I built an interactive model of our solar system using Three.js.</p>
+        
+        <div class="screenshot-container">
+          <img src="Screenshot 2026-01-14 204950.png" alt="3D Solar System Project Screenshot" class="article-screenshot">
+          <p class="screenshot-caption">Interactive 3D Solar System built with Three.js</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Technologies Used</h2>
+        <ul>
+          <li>Three.js for 3D rendering</li>
+          <li>JavaScript (ES6+)</li>
+          <li>WebGL for hardware-accelerated graphics</li>
+          <li>Vercel for deployment</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Key Features</h2>
+        <ul>
+          <li>Realistic planetary orbits</li>
+          <li>Interactive camera controls</li>
+          <li>Relative planet sizes and distances</li>
+          <li>Smooth animations</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Implementation Details</h2>
+        
+        <h3>Setting Up the Scene</h3>
+        <p>First, we need to set up a Three.js scene, camera, and renderer:</p>
+        
+        <pre><code class="language-javascript">// Create scene
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x000000);
+
+// Create camera
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 50;
+
+// Create renderer
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);</code></pre>
+
+        <h3>Creating Planets</h3>
+        <p>Each planet is created as a sphere with appropriate textures and added to the scene:</p>
+        
+        <pre><code class="language-javascript">function createPlanet(radius, textureFile, position, rotationSpeed) {
+  const texture = new THREE.TextureLoader().load(textureFile);
+  const geometry = new THREE.SphereGeometry(radius, 32, 32);
+  const material = new THREE.MeshPhongMaterial({ map: texture });
+  const planet = new THREE.Mesh(geometry, material);
+  
+  // Store rotation speed for animation
+  planet.userData.rotationSpeed = rotationSpeed;
+  
+  // Position the planet
+  planet.position.x = position;
+  
+  return planet;
+}</code></pre>
+
+        <h3>Adding Orbit Controls</h3>
+        <p>For interactive camera controls:</p>
+        
+        <pre><code class="language-javascript">const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;</code></pre>
+      </section>
+
+      <section>
+        <h2>Challenges Faced</h2>
+        <ol>
+          <li><strong>Performance Optimization</strong>: Had to optimize the number of polygons and textures to ensure smooth performance across devices.</li>
+          <li><strong>Scale Management</strong>: The vast differences in planet sizes and distances required careful scaling to make the solar system visually appealing while maintaining some degree of accuracy.</li>
+          <li><strong>Animation Smoothness</strong>: Ensuring smooth animations across different devices and screen sizes required careful optimization of the render loop.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Future Enhancements</h2>
+        <ul>
+          <li>Add more celestial bodies (moons, asteroids, comets)</li>
+          <li>Include information panels about each planet</li>
+          <li>Add realistic lighting based on distance from the sun</li>
+          <li>Implement a scale slider to adjust the relative sizes of planets</li>
+          <li>Add a time control to speed up or slow down planetary motion</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Try It Out</h2>
+        <p>Check out the live demo: <a href="https://solar-system-project-theta.vercel.app/" target="_blank" rel="noopener noreferrer">3D Solar System Demo</a></p>
+      </section>
+
+      <section>
+        <h2>Source Code</h2>
+        <p>The complete source code is available on <a href="https://github.com/rash200319/solar-system-project" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+      </section>
+
+      <section>
+        <h2>Conclusion</h2>
+        <p>Building this project was a great learning experience in 3D graphics and web development. Three.js makes it surprisingly accessible to create complex 3D visualizations in the browser. The project helped me understand the fundamentals of 3D programming, including scene graphs, cameras, lighting, and materials.</p>
+        
+        <p>I encourage you to explore the code and experiment with adding your own features. The world of 3D web graphics is vast and full of possibilities!</p>
+      </section>
+    </article>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <script src="../script.js"></script>
+</body>
+</html>
