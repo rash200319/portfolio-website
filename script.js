@@ -1,16 +1,6 @@
 // Projects data
 const projects = [
   {
-    title: "3D Solar System",
-    description:
-      "An interactive 3D visualization of our solar system built with Three.js. Explore the planets and their orbits in real-time.",
-    technologies: ["JavaScript", "Three.js", "3D Graphics", "WebGL"],
-    github: "https://github.com/rash200319/solar_system_project",
-    demo: "https://rash200319.github.io/solar_system_project",
-    stars: 0,
-    forks: 0,
-  },
-  {
     title: "rash200319.github.io",
     description:
       "My personal portfolio website showcasing projects, skills, and experience. Features AI code reviewer integration.",
@@ -26,7 +16,7 @@ const projects = [
       "Real-time, physics-inspired visualization of stellar evolution for educational and illustrative purposes.",
     technologies: ["JavaScript", "Physics Engine", "WebGL"],
     github: "https://github.com/rash200319/solar_system_project",
-    demo: "https://rash200319.github.io/solar_system_project",
+    demo: "https://solar-system-project-theta.vercel.app/",
     stars: 0,
     forks: 0,
   },
