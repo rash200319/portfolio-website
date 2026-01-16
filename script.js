@@ -1,3 +1,27 @@
+function toggleTheme() {
+  const html = document.documentElement
+  const currentTheme = html.getAttribute("data-theme")
+  const newTheme = currentTheme === "dark" ? "light" : "dark"
+
+  html.setAttribute("data-theme", newTheme)
+  localStorage.setItem("theme", newTheme)
+}
+
+// Initialize theme from localStorage or system preference
+function initTheme() {
+  const savedTheme = localStorage.getItem("theme")
+  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+
+  if (savedTheme) {
+    document.documentElement.setAttribute("data-theme", savedTheme)
+  } else if (systemPrefersDark) {
+    document.documentElement.setAttribute("data-theme", "dark")
+  }
+}
+
+// Call initTheme immediately
+initTheme()
+
 // Projects data
 const projects = [
   {
@@ -175,12 +199,12 @@ const articles = [
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     url: "articles/cleancode.html",
   },
-    {
+  {
     title: "Smart Clean Water Distribution Platform",
     slug: "Smart Clean Water Distribution Platform",
-    description:
-      "A conceptual IoT-based platform designed to address global water access challenges.",
-    excerpt: "The system proposes using sensors, automated filtration, and data analytics to monitor and distribute clean water more efficiently in underserved areas.",
+    description: "A conceptual IoT-based platform designed to address global water access challenges.",
+    excerpt:
+      "The system proposes using sensors, automated filtration, and data analytics to monitor and distribute clean water more efficiently in underserved areas.",
     date: "2026-01-16",
     readTime: "10 min read",
     category: "IoT-based water management",
