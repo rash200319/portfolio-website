@@ -22,17 +22,21 @@
     .article-title {
       font-size: 2.5rem;
       margin-bottom: 1rem;
-      color: #2d3748;
+      color: var(--foreground);
     }
     .article-meta {
-      color: #718096;
+      color: var(--muted-foreground);
       display: flex;
       gap: 1rem;
       margin-bottom: 1.5rem;
     }
     .article-content {
       line-height: 1.8;
-      color: #4a5568;
+      color: var(--muted-foreground);
+    }
+    .article-content h2 {
+      color: var(--foreground);
+      margin-top: 2rem;
     }
     .tags {
       display: flex;
@@ -41,8 +45,8 @@
       margin: 1.5rem 0;
     }
     .tag {
-      background: #ebf8ff;
-      color: #2b6cb0;
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--primary);
       padding: 0.25rem 0.75rem;
       border-radius: 9999px;
       font-size: 0.875rem;
@@ -51,7 +55,7 @@
     .back-link {
       display: inline-flex;
       align-items: center;
-      color: #4299e1;
+      color: var(--primary);
       margin-bottom: 2rem;
       text-decoration: none;
     }
@@ -71,6 +75,24 @@
         <a href="../index.html#projects" class="nav-link">Projects</a>
         <a href="../index.html#articles" class="nav-link">Articles</a>
         <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
       </div>
     </div>
   </nav>
