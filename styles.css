@@ -15,6 +15,21 @@
   --muted-foreground: #6b7280;
   --border: #e5e7eb;
   --radius: 8px;
+  --nav-bg: rgba(252, 252, 253, 0.8);
+}
+
+/* Added dark mode CSS variables */
+[data-theme="dark"] {
+  --background: #0f1419;
+  --foreground: #f1f5f9;
+  --card: #1e293b;
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
+  --secondary: #60a5fa;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --border: #334155;
+  --nav-bg: rgba(15, 20, 25, 0.8);
 }
 
 body {
@@ -37,7 +52,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(252, 252, 253, 0.8);
+  background: var(--nav-bg);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   z-index: 1000;
@@ -70,6 +85,7 @@ body {
 .nav-menu {
   display: flex;
   gap: 32px;
+  align-items: center;
 }
 
 .nav-link {
@@ -85,6 +101,45 @@ body {
 .nav-link:hover,
 .nav-link.active {
   color: var(--primary);
+}
+
+/* Dark mode toggle button styles */
+.theme-toggle {
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  color: var(--foreground);
+}
+
+.theme-toggle:hover {
+  background: var(--border);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.theme-toggle .sun-icon {
+  display: none;
+}
+
+.theme-toggle .moon-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+  display: none;
 }
 
 .mobile-menu-btn {
@@ -252,6 +307,11 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Dark mode card hover shadow */
+[data-theme="dark"] .card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
 .card-icon {
   width: 48px;
   height: 48px;
@@ -262,6 +322,11 @@ body {
   justify-content: center;
   margin: 0 auto 16px;
   color: var(--primary);
+}
+
+/* Dark mode card icon background */
+[data-theme="dark"] .card-icon {
+  background: rgba(59, 130, 246, 0.2);
 }
 
 .card-title {
@@ -328,6 +393,11 @@ body {
 
 .project-card:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Dark mode project card hover shadow */
+[data-theme="dark"] .project-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .project-header {
@@ -412,6 +482,11 @@ body {
 
 .article-card:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Dark mode article card hover shadow */
+[data-theme="dark"] .article-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .article-header {
@@ -511,6 +586,12 @@ body {
   box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.1);
 }
 
+/* Dark mode form focus shadow */
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group textarea:focus {
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
 .form-group textarea {
   min-height: 120px;
   resize: vertical;
@@ -600,6 +681,11 @@ body {
   flex-shrink: 0;
 }
 
+/* Dark mode connect icon background */
+[data-theme="dark"] .connect-icon {
+  background: rgba(59, 130, 246, 0.2);
+}
+
 .connect-title {
   font-weight: 500;
   font-size: 14px;
@@ -660,8 +746,21 @@ body {
     text-align: left;
   }
 
+  /* Theme toggle in mobile menu */
+  .nav-menu .theme-toggle {
+    margin-top: 12px;
+    width: fit-content;
+  }
+
   .mobile-menu-btn {
     display: block;
+  }
+
+  /* Mobile nav actions container */
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
 
   .hero-buttons {
@@ -681,5 +780,18 @@ body {
 
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Nav actions container for desktop */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (min-width: 769px) {
+  .nav-actions .theme-toggle {
+    display: flex;
   }
 }
