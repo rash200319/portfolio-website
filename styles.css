@@ -115,6 +115,8 @@ body {
   justify-content: center;
   transition: all 0.2s;
   color: var(--foreground);
+  /* Ensure toggle is always visible */
+  flex-shrink: 0;
 }
 
 .theme-toggle:hover {
@@ -757,10 +759,15 @@ body {
   }
 
   /* Mobile nav actions container */
+  /* Keep theme toggle visible in nav-actions on mobile */
   .nav-actions {
     display: flex;
     align-items: center;
     gap: 12px;
+  }
+
+  .nav-actions .theme-toggle {
+    display: flex;
   }
 
   .hero-buttons {
@@ -790,8 +797,7 @@ body {
   gap: 12px;
 }
 
-@media (min-width: 769px) {
-  .nav-actions .theme-toggle {
-    display: flex;
-  }
+/* Removed conditional display - toggle should always show */
+.nav-actions .theme-toggle {
+  display: flex;
 }
