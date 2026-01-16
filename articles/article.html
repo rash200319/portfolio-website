@@ -7,67 +7,15 @@
   <title>Smart Clean Water Distribution Platform | Research Paper</title>
   <meta name="description" content="A community-based solution that leverages low-cost purification technologies and rainwater harvesting for areas with high water pollution." />
 
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../styles.css" />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f7fafc;
-      color: #4a5568;
-      line-height: 1.6;
-    }
-
-    /* Navigation */
-    #navbar {
-      background: #ffffff;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .nav-brand {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #2b6cb0;
-      text-decoration: none;
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nav-link {
-      color: #4a5568;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    .nav-link:hover {
-      color: #2b6cb0;
-    }
-
-    /* Article Container */
     .article-container {
       max-width: 800px;
       margin: 0 auto;
@@ -77,19 +25,19 @@
     .article-title {
       font-size: 2.25rem;
       margin-bottom: 0.5rem;
-      color: #1a365d;
+      color: var(--foreground);
       line-height: 1.3;
     }
 
     .article-subtitle {
       font-size: 1.25rem;
-      color: #2b6cb0;
+      color: var(--primary);
       margin-bottom: 1rem;
       font-weight: 500;
     }
 
     .article-meta {
-      color: #718096;
+      color: var(--muted-foreground);
       display: flex;
       gap: 0.75rem;
       margin-bottom: 1.5rem;
@@ -98,22 +46,22 @@
 
     .article-content {
       line-height: 1.8;
-      color: #4a5568;
+      color: var(--muted-foreground);
     }
 
     .article-content h2 {
       margin-top: 2.5rem;
       margin-bottom: 1rem;
-      color: #1a365d;
+      color: var(--foreground);
       font-size: 1.5rem;
-      border-bottom: 2px solid #bee3f8;
+      border-bottom: 2px solid var(--border);
       padding-bottom: 0.5rem;
     }
 
     .article-content h3 {
       margin-top: 1.5rem;
       margin-bottom: 0.75rem;
-      color: #2c5282;
+      color: var(--foreground);
       font-size: 1.15rem;
     }
 
@@ -139,8 +87,8 @@
     }
 
     .tag {
-      background: #ebf8ff;
-      color: #2b6cb0;
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--primary);
       padding: 0.25rem 0.75rem;
       border-radius: 9999px;
       font-size: 0.85rem;
@@ -149,15 +97,15 @@
 
     /* Abstract Box */
     .abstract-box {
-      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
-      border-left: 4px solid #2b6cb0;
+      background: var(--muted);
+      border-left: 4px solid var(--primary);
       padding: 1.5rem;
       border-radius: 0 8px 8px 0;
       margin: 1.5rem 0;
     }
 
     .abstract-box h3 {
-      color: #1a365d;
+      color: var(--foreground);
       margin-bottom: 0.75rem;
       margin-top: 0;
     }
@@ -167,14 +115,14 @@
       width: 100%;
       border-collapse: collapse;
       margin: 1.5rem 0;
-      background: #ffffff;
+      background: var(--card);
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 
     .data-table th {
-      background: #2b6cb0;
+      background: var(--primary);
       color: #ffffff;
       padding: 1rem;
       text-align: left;
@@ -183,7 +131,7 @@
 
     .data-table td {
       padding: 1rem;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid var(--border);
     }
 
     .data-table tr:last-child td {
@@ -191,13 +139,13 @@
     }
 
     .data-table tr:nth-child(even) {
-      background: #f7fafc;
+      background: var(--muted);
     }
 
     /* Flow Diagram Placeholder */
     .flow-diagram {
-      background: #ffffff;
-      border: 2px dashed #cbd5e0;
+      background: var(--card);
+      border: 2px dashed var(--border);
       border-radius: 12px;
       padding: 2rem;
       margin: 1.5rem 0;
@@ -213,16 +161,16 @@
     }
 
     .flow-box {
-      background: #ebf8ff;
-      border: 2px solid #2b6cb0;
+      background: var(--muted);
+      border: 2px solid var(--primary);
       border-radius: 8px;
       padding: 1rem 1.5rem;
       font-weight: 600;
-      color: #1a365d;
+      color: var(--foreground);
     }
 
     .flow-arrow {
-      color: #2b6cb0;
+      color: var(--primary);
       font-size: 1.5rem;
       font-weight: bold;
     }
@@ -230,14 +178,14 @@
     .flow-caption {
       margin-top: 1rem;
       font-size: 0.9rem;
-      color: #718096;
+      color: var(--muted-foreground);
       font-style: italic;
     }
 
     /* Highlight Box */
     .highlight-box {
-      background: #fffaf0;
-      border-left: 4px solid #ed8936;
+      background: var(--muted);
+      border-left: 4px solid var(--secondary);
       padding: 1rem 1.5rem;
       border-radius: 0 8px 8px 0;
       margin: 1.5rem 0;
@@ -252,28 +200,28 @@
     }
 
     .stat-card {
-      background: #ffffff;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 8px;
       padding: 1.25rem;
       text-align: center;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 
     .stat-number {
       font-size: 2rem;
       font-weight: 700;
-      color: #2b6cb0;
+      color: var(--primary);
     }
 
     .stat-label {
       font-size: 0.9rem;
-      color: #718096;
+      color: var(--muted-foreground);
       margin-top: 0.25rem;
     }
 
     /* References */
     .references {
-      background: #f7fafc;
+      background: var(--muted);
       border-radius: 8px;
       padding: 1.5rem;
       margin-top: 2rem;
@@ -291,35 +239,30 @@
     .references li {
       font-size: 0.9rem;
       margin-bottom: 0.75rem;
-      color: #4a5568;
+      color: var(--muted-foreground);
     }
 
     .references a {
-      color: #2b6cb0;
+      color: var(--primary);
       word-break: break-word;
     }
 
-    /* Footer */
-    footer {
-      background: #1a365d;
-      color: #e2e8f0;
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 3rem;
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      text-decoration: none;
     }
 
-    footer p {
-      font-size: 0.9rem;
+    .back-link:hover {
+      text-decoration: underline;
     }
 
     /* Responsive */
     @media (max-width: 640px) {
       .article-title {
         font-size: 1.75rem;
-      }
-
-      .nav-menu {
-        display: none;
       }
 
       .flow-diagram-content {
@@ -337,18 +280,43 @@
   <!-- Navigation -->
   <nav id="navbar">
     <div class="nav-container">
-      <a href="#" class="nav-brand">💧 Clean Water Initiative</a>
+      <a href="../index.html" class="nav-brand">&lt;RashmiPaboda /&gt;</a>
       <div class="nav-menu">
-        <a href="#abstract" class="nav-link">Abstract</a>
-        <a href="#problem" class="nav-link">Problem</a>
-        <a href="#solution" class="nav-link">Solution</a>
-        <a href="#benefits" class="nav-link">Benefits</a>
-        <a href="#references" class="nav-link">References</a>
+        <a href="../index.html#hero" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#articles" class="nav-link">Articles</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
       </div>
     </div>
   </nav>
 
   <main class="article-container">
+    <a href="../index.html#articles" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+        <path d="M19 12H5M12 19l-7-7 7-7"></path>
+      </svg>
+      Back to Articles
+    </a>
+
     <article class="article-content">
       <header>
         <h1 class="article-title">Smart Clean Water Distribution Platform</h1>
@@ -463,7 +431,7 @@
 
         <!-- Flow Diagram -->
         <div class="flow-diagram">
-          <h3 style="margin-bottom: 1.5rem; color: #1a365d;">Platform Flow Diagram</h3>
+          <h3 style="margin-bottom: 1.5rem; color: var(--foreground);">Platform Flow Diagram</h3>
           <div class="flow-diagram-content">
             <div class="flow-box">🏭 Purification Providers</div>
             <span class="flow-arrow">→</span>
@@ -586,7 +554,7 @@
           While there are obstacles—gaining people's trust, securing financing, and controlling quality—these can be minimized through partnerships with governments, NGOs, microfinance institutions, and private sector companies.
         </p>
         <div class="highlight-box">
-          <strong>Vision:</strong> Ultimately, this innovative system has the potential to transform access to clean water throughout the world. By transforming the distribution of water into a community-based system, it not only prevents avoidable deaths and illnesses but also promotes resilience, equity, and long-term sustainability in impacted communities.
+          <strong>Vision:</strong> Ultimately, this innovative system has the potential to transform access to clean water throughout the world. By transforming the distribution of water into a community-based system, it not only prevents avoidable deaths and illnesses but also promotes economic resilience and social justice.
         </div>
       </section>
 
@@ -594,35 +562,14 @@
       <section id="references" class="references">
         <h2>References</h2>
         <ol>
-          <li>
-            World Health Organization. (2023). Drinking-water. [Online]. Available: 
-            <a href="https://www.who.int/news-room/fact-sheets/detail/drinking-water" target="_blank" rel="noopener noreferrer">https://www.who.int/news-room/fact-sheets/detail/drinking-water</a>
-          </li>
-          <li>
-            UNICEF. (2022). The value of water becomes clear when you don't have any. [Online]. Available: 
-            <a href="https://www.unicef.org/rosa/blog/value-water-becomes-clear-when-you-dont-have-any" target="_blank" rel="noopener noreferrer">https://www.unicef.org/rosa/blog/value-water-becomes-clear-when-you-dont-have-any</a>
-          </li>
-          <li>
-            Prüss-Ustün, A. et al. (2019). Burden of disease from inadequate water, sanitation and hygiene for selected adverse health outcomes. International Journal of Hygiene and Environmental Health. [Online]. Available: 
-            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6593152/" target="_blank" rel="noopener noreferrer">https://pmc.ncbi.nlm.nih.gov/articles/PMC6593152/</a>
-          </li>
-          <li>
-            UNICEF. (2023). 10 Things You Didn't Know About Water. [Online]. Available: 
-            <a href="https://www.unicef.org/gulf/stories/10-things-you-didnt-know-about-water" target="_blank" rel="noopener noreferrer">https://www.unicef.org/gulf/stories/10-things-you-didnt-know-about-water</a>
-          </li>
-          <li>
-            NRDC. (2023). Water Pollution: Everything You Need to Know. [Online]. Available: 
-            <a href="https://www.nrdc.org/stories/water-pollution-everything-you-need-know#causes" target="_blank" rel="noopener noreferrer">https://www.nrdc.org/stories/water-pollution-everything-you-need-know#causes</a>
-          </li>
+          <li>WHO/UNICEF Joint Monitoring Programme for Water Supply and Sanitation – <a href="https://www.who.int/water_sanitation_health/monitoring/jmp2000.pdf" target="_blank">Progress on Sanitation and Drinking Water</a></li>
+          <li>United Nations – <a href="https://www.un.org/waterforlifedecade/human_right_to_water.shtml" target="_blank">The Human Right to Water and Sanitation</a></li>
+          <li>World Health Organization – <a href="https://www.who.int/news-room/fact-sheets/detail/drinking-water" target="_blank">Drinking-water Fact Sheet</a></li>
         </ol>
       </section>
     </article>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>Smart Clean Water Distribution Platform | Research Paper</p>
-    <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;">Addressing global water inequality through community-driven solutions</p>
-  </footer>
+  <script src="../script.js"></script>
 </body>
 </html>
