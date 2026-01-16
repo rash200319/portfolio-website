@@ -14,67 +14,227 @@
     .article-container {
       max-width: 800px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 2rem 1rem 4rem;
     }
-    .article-header {
-      margin-bottom: 2rem;
-    }
+
     .article-title {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #2d3748;
+      font-size: 2.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--foreground);
+      line-height: 1.3;
     }
+
     .article-meta {
-      color: #718096;
+      color: var(--muted-foreground);
       display: flex;
-      gap: 1rem;
+      gap: 0.75rem;
       margin-bottom: 1.5rem;
+      font-size: 0.95rem;
     }
+
     .article-content {
       line-height: 1.8;
-      color: #4a5568;
+      color: var(--muted-foreground);
     }
+
+    .article-content h2 {
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--foreground);
+      font-size: 1.5rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    .article-content p {
+      margin-bottom: 1rem;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .article-content li {
+      margin-bottom: 0.5rem;
+    }
+
     .tags {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
       margin: 1.5rem 0;
     }
+
     .tag {
-      background: #ebf8ff;
-      color: #2b6cb0;
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--primary);
       padding: 0.25rem 0.75rem;
       border-radius: 9999px;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       font-weight: 500;
     }
+
     .back-link {
       display: inline-flex;
       align-items: center;
-      color: #4299e1;
+      color: var(--primary);
       margin-bottom: 2rem;
       text-decoration: none;
     }
+
     .back-link:hover {
       text-decoration: underline;
     }
-    table {
+
+    /* Comparison Table */
+    .comparison-table {
       width: 100%;
       border-collapse: collapse;
       margin: 1.5rem 0;
+      background: var(--card);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
-    th, td {
-      border: 1px solid #e2e8f0;
-      padding: 0.75rem;
+
+    [data-theme="dark"] .comparison-table {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .comparison-table th {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 1rem;
       text-align: left;
+      font-weight: 600;
     }
-    th {
-      background-color: #f7fafc;
+
+    .comparison-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table tr:nth-child(even) {
+      background: var(--muted);
+    }
+
+    /* Highlight Box */
+    .highlight-box {
+      background: var(--muted);
+      border-left: 4px solid var(--primary);
+      padding: 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .highlight-box h3 {
+      color: var(--foreground);
+      margin-bottom: 0.75rem;
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+
+    /* Database Cards Grid */
+    .db-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .db-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .db-card h3 {
+      color: var(--foreground);
+      margin-bottom: 1rem;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .db-card h3 svg {
+      color: var(--primary);
+    }
+
+    .db-card ul {
+      margin-left: 1.25rem;
+      margin-bottom: 0;
+    }
+
+    .db-card li {
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    /* Key Takeaways */
+    .takeaways-box {
+      background: var(--card);
+      border: 2px solid var(--primary);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .takeaways-box h2 {
+      margin-top: 0 !important;
+      border-bottom: none !important;
+      color: var(--primary) !important;
+    }
+
+    .takeaways-list {
+      list-style: none;
+      margin-left: 0 !important;
+    }
+
+    .takeaways-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .takeaways-list li svg {
+      color: var(--primary);
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .article-title {
+        font-size: 1.75rem;
+      }
+
+      .db-cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-table {
+        font-size: 0.9rem;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 0.75rem 0.5rem;
+      }
     }
   </style>
 </head>
 
 <body>
+  <!-- Navigation -->
   <nav id="navbar">
     <div class="nav-container">
       <a href="../index.html" class="nav-brand">&lt;RashmiPaboda /&gt;</a>
@@ -85,10 +245,28 @@
         <a href="../index.html#articles" class="nav-link">Articles</a>
         <a href="../index.html#contact" class="nav-link">Contact</a>
       </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
     </div>
   </nav>
 
-  <div class="article-container">
+  <main class="article-container">
     <a href="../index.html#articles" class="back-link">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
         <path d="M19 12H5M12 19l-7-7 7-7"></path>
@@ -97,13 +275,15 @@
     </a>
 
     <article class="article-content">
-      <header class="article-header">
+      <header>
         <h1 class="article-title">Database Design Principles: SQL vs NoSQL</h1>
+        
         <div class="article-meta">
           <span>January 2026</span>
           <span>•</span>
           <span>12 min read</span>
         </div>
+
         <div class="tags">
           <span class="tag">Databases</span>
           <span class="tag">SQL</span>
@@ -112,6 +292,7 @@
         </div>
       </header>
 
+      <!-- Introduction -->
       <section>
         <h2>Introduction</h2>
         <p>
@@ -124,39 +305,49 @@
         </p>
       </section>
 
-      <section>
-        <h2>What Is a Relational (SQL) Database?</h2>
-        <p>
-          SQL databases store data in structured tables with predefined schemas. Relationships between data are enforced
-          using keys and constraints.
-        </p>
-        <p>Common SQL databases include:</p>
-        <ul>
-          <li>MySQL</li>
-          <li>PostgreSQL</li>
-          <li>SQL Server</li>
-          <li>Oracle</li>
-        </ul>
-      </section>
+      <!-- Database Types -->
+      <div class="db-cards-grid">
+        <div class="db-card">
+          <h3>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+            </svg>
+            SQL Databases
+          </h3>
+          <p style="margin-bottom: 0.75rem; font-size: 0.95rem;">Store data in structured tables with predefined schemas.</p>
+          <ul>
+            <li>MySQL</li>
+            <li>PostgreSQL</li>
+            <li>SQL Server</li>
+            <li>Oracle</li>
+          </ul>
+        </div>
 
-      <section>
-        <h2>What Is a NoSQL Database?</h2>
-        <p>
-          NoSQL databases are designed for flexibility and scalability. They do not rely on fixed schemas and support
-          various data models.
-        </p>
-        <p>Common NoSQL types include:</p>
-        <ul>
-          <li>Document databases (MongoDB)</li>
-          <li>Key-value stores (Redis)</li>
-          <li>Wide-column stores (Cassandra)</li>
-          <li>Graph databases (Neo4j)</li>
-        </ul>
-      </section>
+        <div class="db-card">
+          <h3>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            NoSQL Databases
+          </h3>
+          <p style="margin-bottom: 0.75rem; font-size: 0.95rem;">Designed for flexibility and scalability without fixed schemas.</p>
+          <ul>
+            <li>Document: MongoDB</li>
+            <li>Key-value: Redis</li>
+            <li>Wide-column: Cassandra</li>
+            <li>Graph: Neo4j</li>
+          </ul>
+        </div>
+      </div>
 
+      <!-- Key Differences -->
       <section>
         <h2>Key Differences: SQL vs NoSQL</h2>
-        <table>
+        <table class="comparison-table">
           <thead>
             <tr>
               <th>Aspect</th>
@@ -166,22 +357,22 @@
           </thead>
           <tbody>
             <tr>
-              <td>Schema</td>
+              <td><strong>Schema</strong></td>
               <td>Fixed, predefined</td>
               <td>Flexible, dynamic</td>
             </tr>
             <tr>
-              <td>Scalability</td>
+              <td><strong>Scalability</strong></td>
               <td>Vertical scaling</td>
               <td>Horizontal scaling</td>
             </tr>
             <tr>
-              <td>Transactions</td>
+              <td><strong>Transactions</strong></td>
               <td>Strong ACID guarantees</td>
               <td>Eventual consistency (often)</td>
             </tr>
             <tr>
-              <td>Relationships</td>
+              <td><strong>Relationships</strong></td>
               <td>Strong relational integrity</td>
               <td>Handled at application level</td>
             </tr>
@@ -189,60 +380,84 @@
         </table>
       </section>
 
-      <section>
-        <h2>When to Use SQL</h2>
-        <ul>
-          <li>Applications with complex relationships</li>
-          <li>Financial or transactional systems</li>
-          <li>Data integrity is critical</li>
-          <li>Structured and predictable data</li>
-        </ul>
-      </section>
+      <!-- When to Use -->
+      <div class="db-cards-grid">
+        <div class="highlight-box" style="margin: 0;">
+          <h3>When to Use SQL</h3>
+          <ul style="margin-left: 1.25rem; margin-bottom: 0;">
+            <li>Applications with complex relationships</li>
+            <li>Financial or transactional systems</li>
+            <li>Data integrity is critical</li>
+            <li>Structured and predictable data</li>
+          </ul>
+        </div>
 
-      <section>
-        <h2>When to Use NoSQL</h2>
-        <ul>
-          <li>High-traffic applications</li>
-          <li>Rapidly changing data models</li>
-          <li>Large-scale distributed systems</li>
-          <li>Real-time analytics or caching</li>
-        </ul>
-      </section>
+        <div class="highlight-box" style="margin: 0; border-left-color: var(--secondary);">
+          <h3>When to Use NoSQL</h3>
+          <ul style="margin-left: 1.25rem; margin-bottom: 0;">
+            <li>High-traffic applications</li>
+            <li>Rapidly changing data models</li>
+            <li>Large-scale distributed systems</li>
+            <li>Real-time analytics or caching</li>
+          </ul>
+        </div>
+      </div>
 
+      <!-- Design Principles -->
       <section>
         <h2>Key Database Design Principles</h2>
         <ul>
-          <li>Design for access patterns, not just storage</li>
-          <li>Normalize data where consistency matters</li>
-          <li>Denormalize when performance is critical</li>
-          <li>Plan for scaling early</li>
-          <li>Index strategically</li>
+          <li><strong>Design for access patterns</strong> — Understand how your application queries data before choosing a schema</li>
+          <li><strong>Normalize where consistency matters</strong> — Reduce redundancy in transactional systems</li>
+          <li><strong>Denormalize when performance is critical</strong> — Optimize read-heavy workloads</li>
+          <li><strong>Plan for scaling early</strong> — Consider growth patterns from the start</li>
+          <li><strong>Index strategically</strong> — Balance query speed with write performance</li>
         </ul>
       </section>
 
+      <!-- Common Mistakes -->
       <section>
-        <h2>Common Mistakes</h2>
+        <h2>Common Mistakes to Avoid</h2>
         <ul>
           <li>Choosing NoSQL without a scaling requirement</li>
           <li>Over-normalizing SQL databases</li>
-          <li>Ignoring query performance</li>
+          <li>Ignoring query performance during design</li>
           <li>Using one database for all workloads</li>
         </ul>
       </section>
 
-      <section>
+      <!-- Key Takeaways -->
+      <div class="takeaways-box">
         <h2>Key Takeaways</h2>
-        <p>
-          SQL and NoSQL databases solve different problems. There is no universal best choice — only the right tool
-          for a specific use case.
-        </p>
-        <p>
-          Understanding data access patterns, consistency needs, and scalability requirements is essential
-          for making informed database design decisions.
-        </p>
-      </section>
+        <ul class="takeaways-list">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>SQL and NoSQL databases solve different problems — there is no universal best choice</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Understanding data access patterns is essential for making informed decisions</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Consider consistency needs and scalability requirements before choosing</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Many modern systems use a hybrid approach with multiple database types</span>
+          </li>
+        </ul>
+      </div>
     </article>
-  </div>
+  </main>
 
   <script src="../script.js"></script>
 </body>
