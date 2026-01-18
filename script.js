@@ -128,6 +128,22 @@ const articles = [
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     url: "articles/bigOnotation.html",
   },
+{
+  title: "Redis: Overview and Comparison with MongoDB",
+  slug: "redis-vs-mongodb",
+  description:
+    "An in-depth overview of Redis, its core features, use cases, and how it compares with MongoDB in real-world systems.",
+  excerpt:
+    "Redis is an ultra-fast in-memory data store widely used for caching and real-time systems. This article explores how Redis works, where it shines, and why it complements MongoDB rather than replacing it...",
+  date: "2025-12-20",
+  readTime: "15 min read",
+  category: "Databases",
+  tags: ["Redis", "NoSQL", "Databases", "System Design"],
+  featuredImage:
+    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  url: "articles/redisvsmongodb.html",
+},
+
   {
     title: "Building Scalable REST APIs with Node.js",
     slug: "nodejs-rest-apis",
