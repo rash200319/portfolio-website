@@ -49,7 +49,7 @@ const projects = [
     description:
       "Predicts complications during pregnancy using health metrics, medical history, and environmental factors.",
     technologies: ["Python", "Machine Learning", "TensorFlow"],
-    github: "https://github.com/rash200319/maternal_care_ai_model",
+    github: "https://github.com/rash200319/two_stage_preeclampsia_AI_model.git",
     stars: 0,
     forks: 0,
   },
