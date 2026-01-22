@@ -45,7 +45,7 @@ const projects = [
     forks: 0,
   },
   {
-    title: "Maternal Care AI Model",
+    title: "Maternal Care AI Model - BioFusion Hackathon Winner - 2026",
     description:
       "Predicts complications during pregnancy using health metrics, medical history, and environmental factors.",
     technologies: ["Python", "Machine Learning", "TensorFlow"],
