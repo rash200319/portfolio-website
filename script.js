@@ -476,6 +476,43 @@ document.addEventListener("DOMContentLoaded", () => {
 // Set current year in footer
 document.getElementById("currentYear").textContent = new Date().getFullYear()
 
+// Secret Code Checker
+function checkSecretCode() {
+  const input = document.getElementById('secretCode');
+  const message = document.getElementById('codeMessage');
+  const code = input.value.trim();
+  
+  if (code === '034872') {
+    message.textContent = '✅ Correct! Redirecting to hidden page...';
+    message.style.color = '#4ade80';
+    setTimeout(() => {
+      window.location.href = 'page2.html';
+    }, 1500);
+  } else if (code.length === 6) {
+    message.textContent = '❌ Incorrect code. Try again!';
+    message.style.color = '#f87171';
+    setTimeout(() => {
+      message.textContent = '';
+      input.value = '';
+    }, 2000);
+  } else {
+    message.textContent = 'Please enter a 6-digit code';
+    message.style.color = '#fbbf24';
+  }
+}
+
+// Allow Enter key to submit code
+document.addEventListener('DOMContentLoaded', function() {
+  const secretInput = document.getElementById('secretCode');
+  if (secretInput) {
+    secretInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        checkSecretCode();
+      }
+    });
+  }
+});
+
 // Initialize
 window.addEventListener("scroll", updateActiveNav)
 renderProjects()
