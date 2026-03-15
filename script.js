@@ -229,6 +229,20 @@ const articles = [
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     url: "articles/article.html",
   },
+    {
+    title: "Version Control",
+    slug: "Version Control Tools",
+    description: "Version control is a system used to track and manage changes made to software code over time. It helps developers collaborate efficiently, maintain different versions of a project, and restore previous versions when needed.",
+    excerpt:
+      "",
+    date: "2026-03-15",
+    readTime: "5 min read",
+    category: "Software Engineering",
+    tags: ["version control", "Git", "Software Engineering"],
+    featuredImage:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    url: "articles/version_control.html",
+  },
 ]
 
 // Render projects
