@@ -234,7 +234,7 @@ const articles = [
     slug: "Version Control Tools",
     description: "Version control is a system used to track and manage changes made to software code over time. It helps developers collaborate efficiently, maintain different versions of a project, and restore previous versions when needed.",
     excerpt:
-      "",
+      "An overview of version control, its importance in software development, and how tools like Git help developers track and manage code changes.",
     date: "2026-03-15",
     readTime: "5 min read",
     category: "Software Engineering",
