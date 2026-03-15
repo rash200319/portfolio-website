@@ -241,7 +241,7 @@ const articles = [
     tags: ["version control", "Git", "Software Engineering"],
     featuredImage:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    url: "articles/version_control.html",
+    url: "articles/Version_Control.html",
   },
 ]
 
