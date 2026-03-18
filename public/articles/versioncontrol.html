@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Version Control | Rashmi Paboda</title>
+
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .article-header {
+      margin-bottom: 2rem;
+    }
+    .article-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--foreground);
+    }
+    .article-meta {
+      color: var(--muted-foreground);
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-content {
+      line-height: 1.8;
+      color: var(--muted-foreground);
+    }
+    .article-content h2 {
+      color: var(--foreground);
+      margin-top: 2rem;
+    }
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+    .tag {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-brand">&lt;RashmiPaboda /&gt;</a>
+      <div class="nav-menu">
+        <a href="../index.html#hero" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#articles" class="nav-link">Articles</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="article-container">
+    <a href="../index.html#articles" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+        <path d="M19 12H5M12 19l-7-7 7-7"></path>
+      </svg>
+      Back to Articles
+    </a>
+
+    <article class="article-content">
+      <header class="article-header">
+        <h1 class="article-title">Version Control </h1>
+        <div class="article-meta">
+          <span>March 15 , 2026</span>
+          <span>•</span>
+          <span>5 min read</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Version Control</span>
+          <span class="tag">Git</span>
+          <span class="tag">Programming</span>
+          <span class="tag">Software Engineering</span>
+        </div>
+      </header>
+
+      <section>
+        <h2>Why do we need Version Control?</h2>
+        <p>
+         Version control is the practice of maintaining and tracking changes in software code over time. Version Control Systems (VCS) help software engineers manage changes efficiently and allow teams to collaborate on projects more effectively.
+Version control software stores every change made to the code in a special type of database called a repository. If a mistake occurs, developers can easily revert to an earlier version of the code and fix the problem without losing work.
+In collaborative development, multiple developers often work on different parts of the same software simultaneously. Changes made by one developer may sometimes conflict with changes made by another developer. Version control systems help identify and resolve these conflicts without interrupting the workflow of the rest of the team.
+In software development, even small changes can introduce new bugs. Therefore, development and testing happen continuously until a stable version of the software is ready. Version control helps manage this process safely and efficiently.
+        </p>
+      </section>
+
+      <section>
+        <h2>Features of a Good Version Control Tool</h2>
+        <p>
+          A good version control tool should provide several important features:
+        </p>
+        <ul>
+          <li><strong>Cross-platform support:</strong>It should work across different operating systems and development environments</li>
+          <li><strong>Collaboration support:</strong> Multiple developers should be able to work on the same project simultaneously.</li>
+          <li><strong>Change tracking:</strong> The system should record every change made to the code along with details such as who made the change and when.</li>
+          <li><strong>Branching and merging:</strong> Developers should be able to create separate branches for new features or fixes and later merge them into the main project.</li>
+          <li><strong>Conflict resolution:</strong> The system should help detect and resolve conflicts when multiple developers modify the same code.</li>
+        </ul>
+        <p>
+          Modern version control systems focus on enabling a smooth and continuous flow of code changes rather than locking files and blocking other developers from working.
+        </p>
+      </section>
+
+      <section>
+        <h2>Importance of Version Control</h2>
+        <p>
+          Without version control, teams can face many problems, such as:
+        </p>
+        <ul>
+          <li>Not knowing which version of the code is currently used by users.</li>
+          <li>Losing previous versions of code after making changes.</li>
+          <li>Creating incompatible changes between different parts of the software.</li>
+          <li>Difficulty identifying who made specific changes and why.</li>
+        </ul>
+        <p>
+          Developers sometimes comment out sections of code instead of deleting them because they might need them later. However, version control eliminates this need because every previous version of the code is stored and can be restored at any time.
+Using a VCS is considered best practice for high-performing software and DevOps teams. It helps teams work faster, collaborate more efficiently, and manage projects more effectively as the team grows.
+        </p>
+      </section>
+
+      <section>
+        <h2>Benefits of Version Control</h2>
+        <ul>
+          <li>1. Branching and Merging</li>
+          <p>
+            Branching allows developers to create separate versions of the code to work on new features, bug fixes, or experiments without affecting the main codebase.
+Once the work is complete, the branch can be merged back into the main project. This allows teams to verify that the changes do not conflict with other updates.
+Many teams adopt workflows such as:
+          <ul>
+            <li>Feature branching (a branch for each feature)</li>
+            <li>Release branching (branches for each software release) </li>
+          </ul>
+These workflows help organize development and reduce conflicts.
+          </p>
+          <li>2. Traceability</li>
+          <p>
+            Version control allows teams to trace every change made to the codebase. Each change can include a commit message explaining the purpose of the change.
+This traceability helps with:
+            <ul>
+              <li>
+                Debugging and root cause analysis
+              </li>
+              <li>
+                Understanding why a piece of code was written
+              </li>
+              <li>
+                Connecting code changes to issue tracking tools like Jira
+              </li>
+            </ul>
+
+It is especially useful when working with legacy code, where understanding past decisions is important for making safe improvements.
+          </p>
+          
+          <li>3. Complete Long-Term Change History</li>
+          <p>
+            A version control system maintains a complete history of every file in the project. This allows developers to:
+            <ul>
+              <li>
+                Restore previous versions of the software
+              </li>
+              <li>
+                Analyze when and why bugs were introduced
+              </li>
+              <li>
+                Maintain and fix older versions of the software
+              </li>
+
+Since software is constantly evolving, almost every previous version eventually becomes an older version that may still need maintenance or bug fixes.
+            </ul>
+            </p>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Git</h2>
+        <p>
+         Version Control Systems have improved significantly over the past few decades. They are sometimes referred to as:
+          <ul>
+            <li>
+              SCM (Source Code Management) tools
+            </li>
+            <li>
+              RCS (Revision Control Systems)
+            </li>
+          </ul>
+
+One of the most widely used version control systems today is Git.
+Git is a Distributed Version Control System (DVCS). In a DVCS, every developer has a complete copy of the entire repository, including its history. This allows developers to work offline and makes collaboration faster and more flexible.
+Git is free, open-source, and widely used in modern software development, often together with platforms such as GitHub, GitLab, and Bitbucket.
+        </p>
+      </section>
+      <section>
+        <h2>Notes</h2>
+        <p>
+         <h3> DevOps</h3>
+ DevOps is a collaboration between software developers and IT operations teams to improve the speed and quality of software delivery. It emphasizes automation, continuous integration, and continuous deployment.
+          <h3>Legacy Code</h3>
+ Legacy code refers to existing source code that has been developed over many years. It may still be actively used but can sometimes rely on outdated technologies or design decisions.
+        </p>
+      </section>
+    </article>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html> can you format this a bit more 

@@ -1,0 +1,90 @@
+:root {
+  --bg-1: #040711;
+  --bg-2: #080e1d;
+  --text: #e9f1ff;
+  --subtext: #a8b7d8;
+  --glow: rgba(79, 123, 255, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background: radial-gradient(circle at 50% 30%, #0c1530 0%, var(--bg-2) 40%, var(--bg-1) 100%);
+  color: var(--text);
+  overflow: hidden;
+}
+
+.landing-root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.scene-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.scene-wrap canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  filter: blur(var(--scene-blur, 0px));
+  transition: filter 80ms linear;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1.25rem;
+  pointer-events: none;
+}
+
+.overlay__title,
+.overlay__subtitle {
+  margin: 0;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 900ms ease, transform 900ms ease;
+  text-shadow: 0 0 30px var(--glow);
+}
+
+.overlay__title {
+  font-size: clamp(2rem, 6vw, 4.75rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.overlay__subtitle {
+  margin-top: 0.8rem;
+  color: var(--subtext);
+  font-size: clamp(0.95rem, 2.2vw, 1.35rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.overlay--visible .overlay__title,
+.overlay--visible .overlay__subtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .overlay {
+    padding: 1rem;
+  }
+}
