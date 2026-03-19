@@ -19,6 +19,35 @@ function App() {
   const [showInitialLoader, setShowInitialLoader] = useState(true)
 
   const currentYear = useMemo(() => new Date().getFullYear(), [])
+  const achievements = useMemo(
+    () => [
+      {
+        title: "MODEL-X National Hackathon",
+        meta: "Dec 2025 - Jan 2026",
+        detail:
+          "Selected for Round 2 and previously won Round 1 by building a predictive AI model for dementia-risk intelligence.",
+      },
+      {
+        title: "EcoSpark 2025 - Top 10 Finalist",
+        meta: "Sep 2025",
+        detail:
+          "Recognized in the Innovative Idea Challenge 2025 for an impact-focused solution to a real-world societal problem.",
+      },
+      {
+        title: "GCE A/L Academic Distinction",
+        meta: "2022",
+        detail:
+          "4A passes (Combined Mathematics, Physics, Chemistry, General English), Z-score 2.5793, Island Rank 157, District Rank 23.",
+      },
+      {
+        title: "All Island 3rd Place - Western Brass Band",
+        meta: "2020",
+        detail:
+          "Secured national 3rd place as part of the percussion team representing Rippon Girls' College.",
+      },
+    ],
+    [],
+  )
 
   const socialLinks = [
     {
@@ -96,7 +125,7 @@ function App() {
 
   useEffect(() => {
     const onScroll = () => {
-      const sections = ["hero", "about", "projects", "articles", "contact"]
+      const sections = ["hero", "about", "projects", "achievements", "articles", "contact"]
       let current = "hero"
       sections.forEach((sectionId) => {
         const section = document.getElementById(sectionId)
@@ -264,6 +293,7 @@ function App() {
               ["hero", "Home"],
               ["about", "About"],
               ["projects", "Projects"],
+              ["achievements", "Achievements"],
               ["articles", "Articles"],
               ["contact", "Contact"],
             ].map(([id, label]) => (
@@ -394,6 +424,23 @@ function App() {
             <a href="https://github.com/rash200319" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
               View All Projects on GitHub
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="achievements" className="achievements-section">
+        <div className="container">
+          <h2 className="section-title">Achievements & Certifications</h2>
+          <p className="section-description">Highlights extracted from my CV including academic distinctions, competitions, and key recognitions.</p>
+
+          <div className="achievements-grid">
+            {achievements.map((achievement) => (
+              <article className="achievement-card" key={achievement.title}>
+                <div className="achievement-meta">{achievement.meta}</div>
+                <h3 className="achievement-title">{achievement.title}</h3>
+                <p className="achievement-text">{achievement.detail}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
