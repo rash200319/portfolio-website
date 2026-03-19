@@ -283,8 +283,8 @@ function NeuralHero({ name = "Rashmi Paboda" }) {
         <h1 className="neural-hero__title glitch-signal" data-text={`Hi, I'm ${name}`}>
           {`Hi, I'm ${name}`}
         </h1>
-        <p className="neural-hero__subtitle glitch-signal" data-text="CS Student | Psychology & Neuroscience Enthusiast">
-          CS Student | Psychology & Neuroscience Enthusiast
+        <p className="neural-hero__subtitle glitch-signal" data-text="CS Student | University of Moratuwa">
+          CS Student | University of Moratuwa
         </p>
       </div>
     </div>
