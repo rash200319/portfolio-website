@@ -1,7 +1,6 @@
-import { Suspense, lazy, useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { articles as localArticles, projects as localProjects } from "../data/content"
-
-const NeuralHero = lazy(() => import("./components/NeuralHero"))
+import NeuralHero from "./components/NeuralHero"
 
 function App() {
   const [theme, setTheme] = useState("light")
@@ -318,9 +317,7 @@ function App() {
       </aside>
 
       <section id="hero" className="hero-section">
-        <Suspense fallback={<div className="neural-hero neural-hero--fallback"></div>}>
-          <NeuralHero name="Rashmi Paboda" />
-        </Suspense>
+        <NeuralHero name="Rashmi Paboda" />
       </section>
 
       <section id="about" className="about-section">
