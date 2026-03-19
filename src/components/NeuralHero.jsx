@@ -6,6 +6,7 @@ import * as THREE from "three"
 import brainModelUrl from "../../central_brain_of_mankind_cml.glb"
 
 const MODEL_ANCHOR_X = 1.5
+// Scene anchor offset for right-side composition.
 
 function ParticleField() {
   const pointsRef = useRef(null)
