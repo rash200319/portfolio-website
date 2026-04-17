@@ -12,16 +12,10 @@
     "start": "node server/index.js"
   },
   "dependencies": {
-    "@react-three/drei": "^9.122.0",
-    "@react-three/fiber": "^8.17.10",
-    "@react-three/postprocessing": "^2.19.1",
     "cors": "^2.8.5",
     "express": "^4.21.2",
-    "gsap": "^3.14.2",
-    "postprocessing": "^6.38.3",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "three": "^0.183.2"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",

@@ -1,9 +1,11 @@
 :root {
-  --bg-1: #040711;
-  --bg-2: #080e1d;
-  --text: #e9f1ff;
-  --subtext: #a8b7d8;
-  --glow: rgba(79, 123, 255, 0.35);
+  --bg-1: #02040c;
+  --bg-2: #070d1f;
+  --text: #edf4ff;
+  --subtext: #9cb2d3;
+  --cyan: #4ffcff;
+  --blue: #38bdf8;
+  --violet: #8b5cf6;
 }
 
 * {
@@ -19,8 +21,12 @@ body {
 }
 
 body {
-  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  background: radial-gradient(circle at 50% 30%, #0c1530 0%, var(--bg-2) 40%, var(--bg-1) 100%);
+  font-family: "Sora", "Space Grotesk", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(56, 189, 248, 0.25), transparent 38%),
+    radial-gradient(circle at 88% 15%, rgba(139, 92, 246, 0.18), transparent 34%),
+    radial-gradient(circle at 70% 85%, rgba(79, 252, 255, 0.12), transparent 40%),
+    linear-gradient(180deg, var(--bg-2), var(--bg-1));
   color: var(--text);
   overflow: hidden;
 }
@@ -29,6 +35,7 @@ body {
   position: relative;
   width: 100vw;
   height: 100vh;
+  isolation: isolate;
 }
 
 .scene-wrap {
@@ -40,8 +47,6 @@ body {
   width: 100% !important;
   height: 100% !important;
   display: block;
-  filter: blur(var(--scene-blur, 0px));
-  transition: filter 80ms linear;
 }
 
 .overlay {
@@ -50,31 +55,59 @@ body {
   display: grid;
   place-items: center;
   text-align: center;
-  padding: 1.25rem;
-  pointer-events: none;
+  padding: 1.2rem;
+}
+
+.overlay__content {
+  width: min(860px, 100%);
+  padding: clamp(20px, 4vw, 48px);
+  border-radius: 26px;
+  border: 1px solid rgba(121, 149, 220, 0.34);
+  background: linear-gradient(130deg, rgba(9, 16, 34, 0.78), rgba(9, 15, 30, 0.56));
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 20px 46px rgba(3, 8, 20, 0.52),
+    0 0 22px rgba(79, 252, 255, 0.16);
+}
+
+.overlay__label {
+  margin: 0 0 10px;
+  display: inline-flex;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 252, 255, 0.34);
+  color: var(--cyan);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .overlay__title,
 .overlay__subtitle {
   margin: 0;
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 900ms ease, transform 900ms ease;
-  text-shadow: 0 0 30px var(--glow);
+  transform: translateY(10px);
+  transition: opacity 760ms ease, transform 760ms ease;
 }
 
 .overlay__title {
-  font-size: clamp(2rem, 6vw, 4.75rem);
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  font-family: "Space Grotesk", "Sora", sans-serif;
+  font-size: clamp(2.2rem, 7vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: #f0f7ff;
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.28);
 }
 
 .overlay__subtitle {
-  margin-top: 0.8rem;
+  margin-top: 0.9rem;
   color: var(--subtext);
-  font-size: clamp(0.95rem, 2.2vw, 1.35rem);
+  font-size: clamp(0.95rem, 2.3vw, 1.35rem);
   font-weight: 500;
-  letter-spacing: 0.01em;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .overlay--visible .overlay__title,
@@ -85,6 +118,10 @@ body {
 
 @media (max-width: 640px) {
   .overlay {
-    padding: 1rem;
+    padding: 0.8rem;
+  }
+
+  .overlay__content {
+    border-radius: 18px;
   }
 }

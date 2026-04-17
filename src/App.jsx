@@ -1,9 +1,8 @@
 import { useEffect, useMemo, useState } from "react"
 import { articles as localArticles, projects as localProjects } from "../data/content"
-import NeuralHero from "./components/NeuralHero"
 
 function App() {
-  const [theme, setTheme] = useState("light")
+  const [theme, setTheme] = useState("dark")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [projects, setProjects] = useState(localProjects)
   const [articles, setArticles] = useState(localArticles)
@@ -308,7 +307,13 @@ function App() {
           </div>
 
           <div className="nav-actions">
-            <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle dark mode">
+            <button
+              className="theme-toggle"
+              onClick={toggleTheme}
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              aria-pressed={theme === "dark"}
+            >
               <svg className="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
               </svg>
@@ -347,7 +352,22 @@ function App() {
       </aside>
 
       <section id="hero" className="hero-section">
-        <NeuralHero name="Rashmi Paboda" />
+        <div className="hero-bg-orb hero-bg-orb--one" aria-hidden="true"></div>
+        <div className="hero-bg-orb hero-bg-orb--two" aria-hidden="true"></div>
+        <div className="hero-bg-grid" aria-hidden="true"></div>
+
+        <div className="hero-shell">
+          <p className="hero-kicker">Computer Science & Engineering</p>
+          <h1 className="hero-title">Rashmi Paboda</h1>
+          <p className="hero-description">
+            Building thoughtful software with clean architecture, practical AI, and a strong focus on clarity and impact.
+          </p>
+
+          <div className="hero-buttons">
+            <button className="btn btn-primary" onClick={() => scrollToSection("projects")}>View Projects</button>
+            <button className="btn btn-outline" onClick={() => scrollToSection("contact")}>Let&apos;s Connect</button>
+          </div>
+        </div>
       </section>
 
       <section id="about" className="about-section">
