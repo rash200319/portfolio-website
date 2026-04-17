@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Building a 3D Solar System with Three.js | Rashmi Paboda</title>
+  <meta name="description" content="A deep dive into building an interactive 3D solar system using Three.js, WebGL, and JavaScript. Includes implementation details, challenges, and future enhancements." />
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../styles.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Code Highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css" />
+
+  <style>
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .article-title {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--foreground);
+    }
+
+    .article-meta {
+      color: var(--muted-foreground);
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    .article-content {
+      line-height: 1.8;
+      color: var(--muted-foreground);
+    }
+
+    .article-content h2 {
+      margin-top: 2.5rem;
+      color: var(--foreground);
+    }
+
+    .article-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    pre {
+      background: #2d3748;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    code {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9em;
+    }
+
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+
+    .tag {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .screenshot-container {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .article-screenshot {
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .screenshot-caption {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-brand">&lt;RashmiPaboda /&gt;</a>
+      <div class="nav-menu">
+        <a href="../index.html#hero" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#articles" class="nav-link">Articles</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="article-container">
+    <a href="../index.html#articles" class="back-link" aria-label="Back to articles">
+      ← Back to Articles
+    </a>
+
+    <article class="article-content">
+      <header>
+        <h1 class="article-title">Building a 3D Solar System with Three.js</h1>
+        <div class="article-meta">
+          <span>January 14, 2026</span>
+          <span>•</span>
+          <span>10 min read</span>
+        </div>
+
+        <div class="tags">
+          <span class="tag">Three.js</span>
+          <span class="tag">WebGL</span>
+          <span class="tag">3D Graphics</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </header>
+
+      <section>
+        <h2>Introduction</h2>
+        <p>
+          Building an interactive 3D solar system was an exciting deep dive into WebGL and real-time 3D graphics.
+          This project demonstrates how modern browsers can render complex 3D scenes using Three.js while
+          maintaining smooth performance.
+        </p>
+
+        <div class="screenshot-container">
+          <img src="Screenshot 2026-01-14 204950.png" alt="Interactive 3D Solar System rendered using Three.js" class="article-screenshot" />
+          <p class="screenshot-caption">Interactive 3D Solar System built with Three.js</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Technologies Used</h2>
+        <ul>
+          <li><strong>Three.js</strong> for scene management and rendering</li>
+          <li><strong>JavaScript (ES6+)</strong> for logic and animation</li>
+          <li><strong>WebGL</strong> for GPU-accelerated graphics</li>
+          <li><strong>Vercel</strong> for fast and reliable deployment</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Key Features</h2>
+        <ul>
+          <li>Planetary orbits with smooth animation loops</li>
+          <li>Interactive camera movement using OrbitControls</li>
+          <li>Scaled planet sizes and distances for visual clarity</li>
+          <li>Lighting effects for depth and realism</li>
+          <li>Planet info panels on click</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Implementation Details</h2>
+
+        <h3>Scene, Camera, and Renderer</h3>
+        <pre><code class="language-javascript">
+// Initialize the scene
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x000000);
+
+// Camera setup
+const camera = new THREE.PerspectiveCamera(
+  75,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
+camera.position.z = 50;
+
+// Renderer
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+        </code></pre>
+
+        <h3>Planet Creation Function</h3>
+        <pre><code class="language-javascript">
+function createPlanet(radius, texturePath, distance, rotationSpeed) {
+  const texture = new THREE.TextureLoader().load(texturePath);
+  const geometry = new THREE.SphereGeometry(radius, 32, 32);
+  const material = new THREE.MeshPhongMaterial({ map: texture });
+
+  const planet = new THREE.Mesh(geometry, material);
+  planet.position.x = distance;
+  planet.userData.rotationSpeed = rotationSpeed;
+
+  return planet;
+}
+        </code></pre>
+
+        <h3>Orbit Controls</h3>
+        <pre><code class="language-javascript">
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+        </code></pre>
+
+        <h3>Handling Window Resize</h3>
+        <pre><code class="language-javascript">
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Challenges Faced</h2>
+        <ol>
+          <li><strong>Performance:</strong> Optimizing geometry complexity and texture sizes</li>
+          <li><strong>Scaling:</strong> Representing astronomical distances in a user-friendly way</li>
+          <li><strong>Animation:</strong> Keeping motion smooth across devices</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Future Enhancements</h2>
+        <ul>
+          <li>Moons, asteroid belts, and comets</li>
+          <li>Dynamic lighting based on distance from the sun</li>
+          <li>Time-scale controls for orbital speed</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Try It Out</h2>
+        <p>
+          Live demo:
+          <a href="https://solar-system-project-theta.vercel.app/" target="_blank" rel="noopener noreferrer">
+            3D Solar System Demo
+          </a>
+        </p>
+      </section>
+
+      <section>
+        <h2>Source Code</h2>
+        <p>
+          Available on
+          <a href="https://github.com/rash200319/solar-system-project" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+        </p>
+      </section>
+
+      <section>
+        <h2>Conclusion</h2>
+        <p>
+          This project strengthened my understanding of 3D rendering pipelines, scene graphs, lighting,
+          and real-time animation. Three.js makes advanced 3D graphics surprisingly accessible on the web.
+        </p>
+      </section>
+    </article>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <script src="../script.js"></script>
+</body>
+</html>

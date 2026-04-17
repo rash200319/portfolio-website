@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Understanding Big-O Notation: A Comprehensive Guide | Rashmi Paboda</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css" />
+
+  <style>
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .article-header {
+      margin-bottom: 2rem;
+    }
+    .article-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--foreground);
+    }
+    .article-meta {
+      color: var(--muted-foreground);
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-content {
+      line-height: 1.8;
+      color: var(--muted-foreground);
+    }
+    .article-content pre {
+      background: #2d3748;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+    .article-content code {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9em;
+    }
+    .article-content h2 {
+      color: var(--foreground);
+      margin-top: 2rem;
+    }
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+    .tag {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-brand">&lt;RashmiPaboda /&gt;</a>
+      <div class="nav-menu">
+        <a href="../index.html#hero" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#articles" class="nav-link">Articles</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="article-container">
+    <a href="../index.html#articles" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+        <path d="M19 12H5M12 19l-7-7 7-7"></path>
+      </svg>
+      Back to Articles
+    </a>
+
+    <article class="article-content">
+      <header class="article-header">
+        <h1 class="article-title">Understanding Big-O Notation: A Comprehensive Guide</h1>
+        <div class="article-meta">
+          <span>January 10, 2026</span>
+          <span>•</span>
+          <span>8 min read</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Algorithms</span>
+          <span class="tag">Data Structures</span>
+          <span class="tag">Performance</span>
+          <span class="tag">Computer Science</span>
+        </div>
+      </header>
+
+      <section>
+        <h2>Why Should You Care About Big-O?</h2>
+        <p>
+          Imagine your application works perfectly with 100 users, but starts lagging or even crashing when 10,000 users join.
+          That is not a bug. That is bad time complexity.
+        </p>
+        <p>
+          Big-O notation helps us understand how an algorithm behaves as the input size grows, not just how fast it runs once.
+          It explains why some code scales smoothly while other code collapses under load.
+        </p>
+      </section>
+
+      <section>
+        <h2>What Is Big-O (Without the Scary Math)?</h2>
+        <p>
+          Big-O describes how execution time or memory usage grows as the size of the input increases.
+        </p>
+        <p>When analyzing Big-O, we intentionally ignore:</p>
+        <ul>
+          <li>Hardware speed</li>
+          <li>Programming language</li>
+          <li>Small constant differences</li>
+        </ul>
+        <p>
+          Instead, we focus entirely on the growth trend as data becomes larger.
+        </p>
+      </section>
+
+      <section>
+        <h2>Common Big-O Complexities That Actually Matter</h2>
+        <table>
+          <tr><strong>O(1)</strong> – Constant time (accessing an array index)</tr><br />
+          <tr><strong>O(log n)</strong> – Logarithmic time (binary search)</tr><br />
+          <tr><strong>O(n)</strong> – Linear time (looping through a list)</tr><br />
+          <tr><strong>O(n log n)</strong> – Efficient sorting (merge sort)</tr><br />
+          <tr><strong>O(n²)</strong> – Quadratic time (nested loops)</tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Code Examples</h2>
+
+        <h3>O(1) – Constant Time</h3>
+        <pre><code class="language-javascript">
+function getFirstItem(arr) {
+  return arr[0];
+}
+        </code></pre>
+        <p>No matter how large the array is, this operation always takes the same time.</p>
+
+        <h3>O(n) – Linear Time</h3>
+        <pre><code class="language-javascript">
+function findUser(users, name) {
+  for (let user of users) {
+    if (user === name) return true;
+  }
+  return false;
+}
+        </code></pre>
+        <p>The runtime grows proportionally with the number of users.</p>
+
+        <h3>O(n²) – Quadratic Time</h3>
+        <pre><code class="language-javascript">
+function findDuplicates(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (i !== j && arr[i] === arr[j]) return true;
+    }
+  }
+  return false;
+}
+        </code></pre>
+        <p>This works fine for small datasets but becomes extremely slow as the input grows.</p>
+      </section>
+
+      <section>
+        <h2>Why Big-O Matters in Real Applications</h2>
+        <p>
+          In real-world applications, developers rarely discuss Big-O notation explicitly. However, performance-related decisions
+          such as reducing API latency, optimizing React rendering, adding database indexes, or caching responses are all driven
+          by time and space complexity.
+        </p>
+        <ul>
+          <li><strong>Frontend (React)</strong>: unnecessary re-renders or nested mappings can easily become O(n²).</li>
+          <li><strong>APIs</strong>: nested loops over database results lead to slow endpoints.</li>
+          <li><strong>Databases</strong>: indexing transforms O(n) searches into O(log n).</li>
+          <li><strong>Machine Learning</strong>: inefficient preprocessing can dominate training time.</li>
+        </ul>
+        <p>
+          Big-O becomes visible when applications scale. Code that works well for small inputs can degrade rapidly if its
+          complexity is inefficient.
+        </p>
+      </section>
+
+      <section>
+        <h2>The Big Truth About Teams</h2>
+        <p>In real teams, developers rarely say things like:</p>
+        <ul>
+          <li>"This is O(n²)"</li>
+        </ul>
+        <p>Instead, they say:</p>
+        <ul>
+          <li>"This will be slow with more users"</li>
+          <li>"Why is the page lagging?"</li>
+          <li>"This API is timing out"</li>
+          <li>"This doesn't scale"</li>
+        </ul>
+        <p>
+          That is Big-O thinking, just without the name.
+        </p>
+      </section>
+
+      <section>
+        <h2>Common Mistakes Beginners Make</h2>
+        <ul>
+          <li>Thinking Big-O gives exact runtime</li>
+          <li>Ignoring worst-case scenarios</li>
+          <li>Over-optimizing too early</li>
+          <li>Using nested loops when a hash map would work better</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Key Takeaway</h2>
+        <p>
+          Big-O notation is not about writing clever code. It is about writing code that survives growth.
+        </p>
+        <p>
+          Understanding Big-O helps developers write scalable applications, debug performance issues, and think like engineers
+          rather than just coders.
+        </p>
+      </section>
+    </article>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <script src="../script.js"></script>
+</body>
+</html>
