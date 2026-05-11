@@ -21,6 +21,30 @@ function App() {
   const achievements = useMemo(
     () => [
       {
+        title: "Preeclampsia Risk Assessment System - BioFusion Hackathon Winner - 2026",
+        meta: "Hackathon Winner",
+        detail:
+          "Built a dual-model maternal health system combining patient-facing screening with clinician-side phenotype-driven risk stratification.",
+      },
+      {
+        title: "PawMatch - Devthon 2026 Top 10",
+        meta: "Competition Achievement",
+        detail:
+          "Built an AI-powered pet adoption platform focused on compatibility matching and welfare tracking, and placed in the top 10 at Devthon 2026.",
+      },
+      {
+        title: "BloomCare - Top 30 Finalist",
+        meta: "Competition Achievement",
+        detail:
+          "Built an AI-powered maternal healthcare platform for screening, triage, appointments, and tracking, and reached the top 30 in the competition.",
+      },
+      {
+        title: "DataExplore Model Training Competition - Stage 01 Top 10",
+        meta: "Competition Achievement",
+        detail:
+          "Reached the top 10 in Stage 01 by building a strong model training pipeline with practical, leakage-safe evaluation.",
+      },
+      {
         title: "MODEL-X National Hackathon",
         meta: "Dec 2025 - Jan 2026",
         detail:

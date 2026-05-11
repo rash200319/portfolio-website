@@ -29,6 +29,33 @@ export const projects = [
     forks: 0,
   },
   {
+    title: "Preeclampsia Risk Assessment System - BioFusion Hackathon Winner - 2026",
+    description:
+      "Dual-model maternal health system for patient screening and clinician-side phenotype-driven risk stratification.",
+    technologies: ["Python", "Scikit-learn", "SHAP"],
+    github: "https://github.com/rash200319/two_stage_preeclampsia_AI_model.git",
+    stars: 0,
+    forks: 0,
+  },
+  {
+    title: "BloomCare - Top 30 Finalist",
+    description:
+      "AI-powered maternal healthcare platform for screening, triage, appointments, and longitudinal patient tracking.",
+    technologies: ["Next.js", "FastAPI", "SQLAlchemy"],
+    github: "https://github.com/rash200319",
+    stars: 0,
+    forks: 0,
+  },
+  {
+    title: "PawMatch - Devthon 2026 Top 10",
+    description:
+      "AI-powered pet adoption platform with compatibility matching, identity verification, and foster-to-adopt workflows.",
+    technologies: ["Next.js", "TypeScript", "Node.js"],
+    github: "https://github.com/rash200319",
+    stars: 0,
+    forks: 0,
+  },
+  {
     title: "AI Code Reviewer",
     description:
       "Automated code review tool using AI to analyze code quality, identify bugs, and suggest improvements.",
