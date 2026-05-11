@@ -42,7 +42,7 @@ function App() {
         title: "DataExplore Model Training Competition - Stage 01 Top 10",
         meta: "Competition Achievement",
         detail:
-          "Reached the top 10 in Stage 01 by building a strong model training pipeline with practical, leakage-safe evaluation.",
+          "Reached the top 10 in Stage 01 using the stroke prediction project, built with a strong leakage-safe training pipeline and practical evaluation.",
       },
       {
         title: "MODEL-X National Hackathon",

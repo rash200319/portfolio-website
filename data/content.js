@@ -20,20 +20,11 @@ export const projects = [
     forks: 0,
   },
   {
-    title: "Maternal Care AI Model - BioFusion Hackathon Winner - 2026",
+    title: "Stroke Prediction Project- Top 10 Dataexplore 2026",
     description:
-      "Predicts complications during pregnancy using health metrics, medical history, and environmental factors.",
-    technologies: ["Python", "Machine Learning", "TensorFlow"],
-    github: "https://github.com/rash200319/two_stage_preeclampsia_AI_model.git",
-    stars: 0,
-    forks: 0,
-  },
-  {
-    title: "Preeclampsia Risk Assessment System - BioFusion Hackathon Winner - 2026",
-    description:
-      "Dual-model maternal health system for patient screening and clinician-side phenotype-driven risk stratification.",
-    technologies: ["Python", "Scikit-learn", "SHAP"],
-    github: "https://github.com/rash200319/two_stage_preeclampsia_AI_model.git",
+      "Leakage-safe stroke risk prediction workflow with cleaning, feature engineering, threshold tuning, and stacking evaluation on imbalanced clinical data.",
+    technologies: ["Python", "Scikit-learn", "XGBoost"],
+    github: "https://github.com/rash200319",
     stars: 0,
     forks: 0,
   },
