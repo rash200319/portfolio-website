@@ -20,6 +20,15 @@ export const projects = [
     forks: 0,
   },
   {
+    title: "VerifyShelf - ProxyMaze '26 Top 10",
+    description:
+      "Real-time brand protection and MAP (Minimum Advertised Price) violation detection for brands selling through third-party resellers. Built with residential/ISP proxy routing, a trained classifier for reseller violations, and automated enforcement drafting.",
+    technologies: ["Python", "Scikit-learn", "FastAPI", "Web Crawling"],
+    github: "https://github.com/rash200319/verifishelf",
+    stars: 0,
+    forks: 0,
+  },
+  {
     title: "Stroke Prediction Project- Top 10 Dataexplore 2026",
     description:
       "Leakage-safe stroke risk prediction workflow with cleaning, feature engineering, threshold tuning, and stacking evaluation on imbalanced clinical data.",
@@ -68,6 +77,15 @@ export const projects = [
     description: "Machine learning model for early detection and prediction of dementia using health indicators.",
     technologies: ["Python", "Machine Learning", "Healthcare AI"],
     github: "https://github.com/rash200319/Dementia-Predictor-AI-model",
+    stars: 0,
+    forks: 0,
+  },
+  {
+    title: "ProxyMaze - HTTP API Proxy Monitor",
+    description:
+      "HTTP API for real-time proxy pool monitoring. Loads proxy URLs, continuously monitors health in the background, tracks status changes, and fires webhook alerts when pool health drops.",
+    technologies: ["Go", "HTTP API", "Concurrency", "Webhooks"],
+    github: "https://github.com/rash200319/ProxyMaze26",
     stars: 0,
     forks: 0,
   },

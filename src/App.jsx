@@ -33,6 +33,12 @@ function App() {
           "Built an AI-powered pet adoption platform focused on compatibility matching and welfare tracking, and placed in the top 10 at Devthon 2026.",
       },
       {
+        title: "ProxyMaze '26 Innovation Challenge - Top 10 Finalist",
+        meta: "Top 10 Finalist",
+        detail:
+          "Reached the top 10 in a 14-week competition by Torch Labs (out of 200+ registrations) with VerifyShelf—an automated brand protection and MAP violation detection platform powered by residential proxy routing.",
+      },
+      {
         title: "BloomCare - Top 30 Finalist",
         meta: "Competition Achievement",
         detail:
