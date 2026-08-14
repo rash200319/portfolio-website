@@ -25,16 +25,6 @@ initTheme()
 // Projects data
 const projects = [
   {
-    title: "rash200319.github.io",
-    description:
-      "My personal portfolio website showcasing projects, skills, and experience. Features AI code reviewer integration.",
-    technologies: ["HTML", "JavaScript", "CSS"],
-    github: "https://github.com/rash200319/rash200319.github.io",
-    demo: "https://rash200319.github.io",
-    stars: 0,
-    forks: 0,
-  },
-  {
     title: "Solar System Project",
     description:
       "Real-time, physics-inspired visualization of stellar evolution for educational and illustrative purposes.",
