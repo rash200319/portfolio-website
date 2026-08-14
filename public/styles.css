@@ -673,7 +673,6 @@ body {
 .achievement-text,
 .cv-text,
 .card-description,
-.opportunity-text,
 .connect-text,
 .form-status,
 .footer {
@@ -866,8 +865,7 @@ body {
 }
 
 .card-description,
-.connect-text,
-.opportunity-text {
+.connect-text {
   font-size: 14px;
 }
 
@@ -896,9 +894,89 @@ body {
   font-weight: 700;
 }
 
-.opportunity-text {
-  text-align: center;
-  padding: 14px;
+.availability-banner {
+  margin-top: 28px;
+  padding: 28px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid rgba(79, 252, 255, 0.28);
+  background:
+    linear-gradient(120deg, rgba(79, 252, 255, 0.08), transparent 42%),
+    linear-gradient(150deg, var(--bg-panel-strong), var(--bg-panel));
+  box-shadow: inset 0 0 0 1px rgba(79, 252, 255, 0.04), var(--shadow-lg);
+}
+
+.availability-banner::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--cyan), var(--violet));
+}
+
+.availability-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: var(--cyan);
+  border: 1px solid rgba(79, 252, 255, 0.34);
+  background: rgba(79, 252, 255, 0.08);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.availability-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ffcff;
+  box-shadow: 0 0 0 0 rgba(79, 252, 255, 0.7);
+  animation: availabilityPulse 1.8s ease-out infinite;
+}
+
+.availability-title {
+  font-family: "Space Grotesk", "Sora", sans-serif;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.15;
+  color: #eaf4ff;
+  margin-bottom: 6px;
+}
+
+.availability-copy {
+  max-width: 520px;
+  color: var(--text-soft);
+  font-size: 15px;
+}
+
+.availability-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@keyframes availabilityPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(79, 252, 255, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(79, 252, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(79, 252, 255, 0);
+  }
 }
 
 .footer {
@@ -1022,8 +1100,18 @@ body {
     width: 100%;
   }
 
-  .cv-card {
+  .cv-card,
+  .availability-banner {
     text-align: center;
+    justify-content: center;
+  }
+
+  .availability-kicker {
+    justify-content: center;
+  }
+
+  .availability-actions {
+    width: 100%;
     justify-content: center;
   }
 }
@@ -1064,7 +1152,8 @@ body {
   box-shadow: 0 20px 46px rgba(15, 23, 42, 0.08), 0 0 22px rgba(53, 183, 255, 0.08);
 }
 
-[data-theme="light"] .hero-kicker {
+[data-theme="light"] .hero-kicker,
+[data-theme="light"] .availability-kicker {
   color: #0284c7;
   border-color: rgba(53, 183, 255, 0.22);
   background: rgba(53, 183, 255, 0.08);
@@ -1077,7 +1166,7 @@ body {
 [data-theme="light"] .achievement-text,
 [data-theme="light"] .cv-text,
 [data-theme="light"] .card-description,
-[data-theme="light"] .opportunity-text,
+[data-theme="light"] .availability-copy,
 [data-theme="light"] .connect-text,
 [data-theme="light"] .form-status,
 [data-theme="light"] .footer {
@@ -1101,6 +1190,7 @@ body {
 [data-theme="light"] .article-title,
 [data-theme="light"] .achievement-title,
 [data-theme="light"] .cv-title,
+[data-theme="light"] .availability-title,
 [data-theme="light"] .connect-title,
 [data-theme="light"] .form-group label {
   color: #0f172a;
@@ -1114,7 +1204,8 @@ body {
 [data-theme="light"] .project-card,
 [data-theme="light"] .article-card,
 [data-theme="light"] .achievement-card,
-[data-theme="light"] .cv-card {
+[data-theme="light"] .cv-card,
+[data-theme="light"] .availability-banner {
   border-color: rgba(148, 163, 184, 0.18);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7), 0 18px 36px rgba(15, 23, 42, 0.06);
 }

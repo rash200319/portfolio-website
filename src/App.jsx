@@ -615,12 +615,36 @@ function App() {
                   </a>
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div className="card">
-                <p className="opportunity-text">
-                  Open to internship opportunities, collaborations, and interesting projects. Let&apos;s build something amazing together!
-                </p>
-              </div>
+          <div className="availability-banner">
+            <div>
+              <p className="availability-kicker">
+                <span className="availability-dot" aria-hidden="true"></span>
+                Currently available
+              </p>
+              <h3 className="availability-title">Open for internships</h3>
+              <p className="availability-copy">
+                Looking for internships, collaborations, and projects with real impact.
+              </p>
+            </div>
+            <div className="availability-actions">
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => document.getElementById("name")?.focus()}
+              >
+                Send a message
+              </button>
+              <a
+                href="https://www.linkedin.com/in/paboda-munasingha-307a99323?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline"
+              >
+                LinkedIn
+              </a>
             </div>
           </div>
 
