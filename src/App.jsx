@@ -257,7 +257,8 @@ function App() {
   const handleContactSubmit = async (e) => {
     e.preventDefault()
 
-    const formData = new FormData(e.currentTarget)
+    const form = e.currentTarget
+    const formData = new FormData(form)
     const name = String(formData.get("name") || "").trim()
     const email = String(formData.get("email") || "").trim()
     const message = String(formData.get("message") || "").trim()
@@ -270,16 +271,16 @@ function App() {
       const response = await fetch("https://formspree.io/f/xwvvpqbk", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify({ name, email, message }),
+        body: formData,
       })
 
       if (!response.ok) {
         throw new Error("Form submission failed")
       }
 
-      e.currentTarget.reset()
+      form.reset()
       setFormStatus("Thank you for your message! I'll get back to you soon.")
       setFormStatusType("success")
 
