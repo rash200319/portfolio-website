@@ -92,7 +92,7 @@ function App() {
     },
     {
       id: "linkedin",
-      href: "https://www.linkedin.com/in/paboda-munasingha-307a99323?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      href: "https://www.linkedin.com/in/rashmi-paboda-307a99323/",
       ariaLabel: "LinkedIn",
       external: true,
       icon: (
@@ -386,19 +386,33 @@ function App() {
         <div className="hero-bg-orb hero-bg-orb--one" aria-hidden="true"></div>
         <div className="hero-bg-orb hero-bg-orb--two" aria-hidden="true"></div>
         <div className="hero-bg-grid" aria-hidden="true"></div>
+        <div className="hero-horizon" aria-hidden="true">
+          <div className="hero-horizon__grid"></div>
+        </div>
+        <div className="hero-scanline" aria-hidden="true"></div>
 
-        <div className="hero-shell">
-          <p className="hero-kicker">Computer Science & Engineering</p>
-          <h1 className="hero-title">Rashmi Paboda</h1>
+        <div className="hero-stage">
+          <p className="hero-status">
+            <span className="availability-dot" aria-hidden="true"></span>
+            Open for internships
+          </p>
+          <h1 className="hero-title">
+            <span>Rashmi</span>
+            <span>Paboda</span>
+          </h1>
+          <p className="hero-role">Computer Science & Engineering</p>
           <p className="hero-description">
             Building thoughtful software with clean architecture, practical AI, and a strong focus on clarity and impact.
           </p>
-
           <div className="hero-buttons">
             <button className="btn btn-primary" onClick={() => scrollToSection("projects")}>View Projects</button>
             <button className="btn btn-outline" onClick={() => scrollToSection("contact")}>Let&apos;s Connect</button>
           </div>
         </div>
+
+        <button className="hero-scroll" onClick={() => scrollToSection("about")} aria-label="Scroll to about">
+          <span></span>
+        </button>
       </section>
 
       <section id="about" className="about-section">
@@ -597,14 +611,14 @@ function App() {
                     </div>
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/paboda-munasingha-307a99323?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    href="https://www.linkedin.com/in/rashmi-paboda-307a99323/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="connect-link"
                   >
                     <div>
                       <div className="connect-title">LinkedIn</div>
-                      <div className="connect-text">paboda-munasingha</div>
+                      <div className="connect-text">rashmi-paboda</div>
                     </div>
                   </a>
                   <a href="https://x.com/RPaboda33562" target="_blank" rel="noopener noreferrer" className="connect-link">
@@ -638,7 +652,7 @@ function App() {
                 Send a message
               </button>
               <a
-                href="https://www.linkedin.com/in/paboda-munasingha-307a99323?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                href="https://www.linkedin.com/in/rashmi-paboda-307a99323/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-outline"
