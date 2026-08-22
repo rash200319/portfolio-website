@@ -460,29 +460,73 @@ function App() {
             A collection of my recent work showcasing various technologies and problem-solving approaches.
           </p>
           <div className="projects-grid">
-            {projects.map((project) => (
-              <div className="project-card" key={project.title}>
-                <div className="project-header">
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
+            {projects.map((project) => {
+              const mediaImages = project.images?.length
+                ? project.images
+                : project.image
+                  ? [project.image]
+                  : []
+
+              return (
+                <div className="project-card" key={project.title}>
+                  <div className={`project-media${mediaImages.length > 1 ? " project-media--dual" : ""}`}>
+                    {mediaImages.length > 0 ? (
+                      mediaImages.map((src) => (
+                        <img
+                          key={src}
+                          src={src}
+                          alt={`${project.title} screenshot`}
+                          className="project-screenshot"
+                          loading="lazy"
+                        />
+                      ))
+                    ) : (
+                      <div className="project-media-placeholder" aria-hidden="true">
+                        <span className="project-media-placeholder-icon">◇</span>
+                        <span>Preview coming soon</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="project-body">
+                    <div className="project-header">
+                      <h3 className="project-title">{project.title}</h3>
+                      <p className="project-description">{project.description}</p>
+                    </div>
+                    <div className="project-tags">
+                      {project.technologies.map((tech) => (
+                        <span className="badge" key={`${project.title}-${tech}`}>{tech}</span>
+                      ))}
+                    </div>
+                    <div className="project-stats">
+                      <div className="stat"><span>★</span><span>{project.stars}</span></div>
+                      <div className="stat"><span>⑂</span><span>{project.forks}</span></div>
+                    </div>
+                    <div className="project-footer">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-outline">Code</a>
+                      {project.demos?.length
+                        ? project.demos.map((demo) => (
+                            <a
+                              key={demo.url}
+                              href={demo.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="btn btn-primary"
+                            >
+                              {demo.label || "Demo"}
+                            </a>
+                          ))
+                        : project.demo
+                          ? (
+                              <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                                Demo
+                              </a>
+                            )
+                          : null}
+                    </div>
+                  </div>
                 </div>
-                <div className="project-tags">
-                  {project.technologies.map((tech) => (
-                    <span className="badge" key={`${project.title}-${tech}`}>{tech}</span>
-                  ))}
-                </div>
-                <div className="project-stats">
-                  <div className="stat"><span>★</span><span>{project.stars}</span></div>
-                  <div className="stat"><span>⑂</span><span>{project.forks}</span></div>
-                </div>
-                <div className="project-footer">
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-outline">Code</a>
-                  {project.demo ? (
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Demo</a>
-                  ) : null}
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
           <div className="text-center" style={{ marginTop: "48px" }}>

@@ -30,16 +30,62 @@ const projects = [
       "Real-time, physics-inspired visualization of stellar evolution for educational and illustrative purposes.",
     technologies: ["JavaScript", "Physics Engine", "WebGL"],
     github: "https://github.com/rash200319/solar_system_project",
-    demo: "https://solar-system-project-theta.vercel.app/",
+    demo: "https://solarsystem.rashmip.me",
+    image: "/images/projects/solar-system.png",
     stars: 0,
     forks: 0,
   },
   {
-    title: "Maternal Care AI Model - BioFusion Hackathon Winner - 2026",
+    title: "VerifyShelf - ProxyMaze '26 Top 10",
     description:
-      "Predicts complications during pregnancy using health metrics, medical history, and environmental factors.",
-    technologies: ["Python", "Machine Learning", "TensorFlow"],
+      "Real-time brand protection and MAP (Minimum Advertised Price) violation detection for brands selling through third-party resellers. Built with residential/ISP proxy routing, a trained classifier for reseller violations, and automated enforcement drafting.",
+    technologies: ["Python", "Scikit-learn", "FastAPI", "Web Crawling"],
+    github: "https://github.com/rash200319/verifishelf",
+    image: "/images/projects/verifyshelf.png",
+    stars: 0,
+    forks: 0,
+  },
+  {
+    title: "Preeclampsia Risk Assessment - BioFusion Winner 2026",
+    description:
+      "Dual-model maternal health system: patient-facing vitals screening for low-resource settings, plus clinician-side lab-confirmed phenotype-driven risk stratification.",
+    technologies: ["Python", "Streamlit", "Machine Learning", "Healthcare AI"],
     github: "https://github.com/rash200319/two_stage_preeclampsia_AI_model.git",
+    images: [
+      "/images/projects/preeclampsia-stage1.png",
+      "/images/projects/preeclampsia-stage2.png",
+    ],
+    demos: [
+      {
+        label: "Stage 1",
+        url: "https://twostagepreeclampsiaaimodelgit-djjfq29rhtv9h3khwqkcqw.streamlit.app/",
+      },
+      {
+        label: "Stage 2",
+        url: "https://twostagepreeclampsiaaimodelgit-76r4nus9gj7mxxvfxapput.streamlit.app/",
+      },
+    ],
+    stars: 0,
+    forks: 0,
+  },
+  {
+    title: "BloomCare - Top 30 Finalist",
+    description:
+      "AI-powered maternal healthcare platform for screening, triage, appointments, and longitudinal patient tracking.",
+    technologies: ["Next.js", "FastAPI", "SQLAlchemy"],
+    github: "https://github.com/rash200319",
+    demo: "https://bloomcare.rashmip.me",
+    image: "/images/projects/bloomcare.png",
+    stars: 0,
+    forks: 0,
+  },
+  {
+    title: "National Risk Intelligence Platform",
+    description: "Platform for analyzing and visualizing national-level risk data and intelligence.",
+    technologies: ["Python", "Streamlit", "Data Analysis", "Visualization"],
+    github: "https://github.com/rash200319/National-Risk-Intelligence-Platform",
+    demo: "https://national-risk-intelligence-platform-mdperqddt6yvytlk88knxp.streamlit.app/",
+    image: "/images/projects/national-risk.png",
     stars: 0,
     forks: 0,
   },
@@ -49,14 +95,6 @@ const projects = [
       "Automated code review tool using AI to analyze code quality, identify bugs, and suggest improvements.",
     technologies: ["Python", "AI/ML", "NLP"],
     github: "https://github.com/rash200319/AI_code_reviewer",
-    stars: 0,
-    forks: 0,
-  },
-  {
-    title: "National Risk Intelligence Platform",
-    description: "Platform for analyzing and visualizing national-level risk data and intelligence.",
-    technologies: ["Python", "Data Analysis", "Visualization"],
-    github: "https://github.com/rash200319/National-Risk-Intelligence-Platform",
     stars: 0,
     forks: 0,
   },
@@ -253,58 +291,81 @@ const articles = [
 function renderProjects() {
   const grid = document.getElementById("projectsGrid")
   grid.innerHTML = projects
-    .map(
-      (project) => `
-    <div class="project-card">
-      <div class="project-header">
-        <h3 class="project-title">${project.title}</h3>
-        <p class="project-description">${project.description}</p>
-      </div>
-      <div class="project-tags">
-        ${project.technologies.map((tech) => `<span class="badge">${tech}</span>`).join("")}
-      </div>
-      <div class="project-stats">
-        <div class="stat">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-          </svg>
-          <span>${project.stars}</span>
-        </div>
-        <div class="stat">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="6" y1="3" x2="6" y2="15"></line>
-            <circle cx="18" cy="6" r="3"></circle>
-            <circle cx="6" cy="18" r="3"></circle>
-            <path d="M18 9a9 9 0 0 1-9 9"></path>
-          </svg>
-          <span>${project.forks}</span>
-        </div>
-      </div>
-      <div class="project-footer">
-        <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-          </svg>
-          Code
-        </a>
-        ${
-          project.demo
-            ? `
+    .map((project) => {
+      const mediaImages = project.images?.length
+        ? project.images
+        : project.image
+          ? [project.image]
+          : []
+      const mediaClass = `project-media${mediaImages.length > 1 ? " project-media--dual" : ""}`
+      const mediaHtml =
+        mediaImages.length > 0
+          ? mediaImages
+              .map(
+                (src) =>
+                  `<img src="${src}" alt="${project.title} screenshot" class="project-screenshot" loading="lazy" />`,
+              )
+              .join("")
+          : `<div class="project-media-placeholder" aria-hidden="true">
+              <span class="project-media-placeholder-icon">◇</span>
+              <span>Preview coming soon</span>
+            </div>`
+      const demosHtml = project.demos?.length
+        ? project.demos
+            .map(
+              (demo) => `
+          <a href="${demo.url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            ${demo.label || "Demo"}
+          </a>`,
+            )
+            .join("")
+        : project.demo
+          ? `
           <a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
             Demo
+          </a>`
+          : ""
+
+      return `
+    <div class="project-card">
+      <div class="${mediaClass}">
+        ${mediaHtml}
+      </div>
+      <div class="project-body">
+        <div class="project-header">
+          <h3 class="project-title">${project.title}</h3>
+          <p class="project-description">${project.description}</p>
+        </div>
+        <div class="project-tags">
+          ${project.technologies.map((tech) => `<span class="badge">${tech}</span>`).join("")}
+        </div>
+        <div class="project-stats">
+          <div class="stat">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <span>${project.stars}</span>
+          </div>
+          <div class="stat">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="6" y1="3" x2="6" y2="15"></line>
+              <circle cx="18" cy="6" r="3"></circle>
+              <circle cx="6" cy="18" r="3"></circle>
+              <path d="M18 9a9 9 0 0 1-9 9"></path>
+            </svg>
+            <span>${project.forks}</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            Code
           </a>
-        `
-            : ""
-        }
+          ${demosHtml}
+        </div>
       </div>
     </div>
-  `,
-    )
+  `
+    })
     .join("")
 }
 
