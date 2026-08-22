@@ -36,6 +36,16 @@ const projects = [
     forks: 0,
   },
   {
+    title: "AutoVault LK",
+    description:
+      "Cloud-native second-hand vehicle marketplace with plain-English NLP search, automated bulk listing normalization, and dealer-reviewed AI edits. Built as TypeScript/NestJS microservices with API gateway, auth, marketplace, and ingestion pipelines.",
+    technologies: ["TypeScript", "NestJS", "PostgreSQL", "pgvector", "AWS"],
+    github: "https://github.com/Team-25-Second-Hand-Vehicle-Marketplace/AutoVaultLK",
+    image: "/images/projects/autovault-lk.jpg",
+    stars: 0,
+    forks: 1,
+  },
+  {
     title: "VerifyShelf - ProxyMaze '26 Top 10",
     description:
       "Real-time brand protection and MAP (Minimum Advertised Price) violation detection for brands selling through third-party resellers. Built with residential/ISP proxy routing, a trained classifier for reseller violations, and automated enforcement drafting.",
