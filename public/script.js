@@ -46,6 +46,17 @@ const projects = [
     forks: 1,
   },
   {
+    title: "Counsellor AI Agent",
+    description:
+      "Compassionate AI mental health counselor demo with a ReAct agent, keyword RAG over a local knowledge base, Tavily web search, Mem0 conversation memory, and crisis keyword detection before the agent runs. Built with LlamaIndex, Groq, and Streamlit.",
+    technologies: ["Python", "LlamaIndex", "Groq", "Streamlit", "Mem0"],
+    github: "https://github.com/rash200319/Counsellor-AI-Agent",
+    demo: "https://counsellor-ai-agent-ndr8wugf3be6irdrlcsrmz.streamlit.app/",
+    image: "/images/projects/counsellor-ai-agent.png",
+    stars: 0,
+    forks: 0,
+  },
+  {
     title: "VerifyShelf - ProxyMaze '26 Top 10",
     description:
       "Real-time brand protection and MAP (Minimum Advertised Price) violation detection for brands selling through third-party resellers. Built with residential/ISP proxy routing, a trained classifier for reseller violations, and automated enforcement drafting.",
