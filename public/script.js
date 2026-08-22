@@ -39,7 +39,7 @@ const projects = [
     title: "AutoVault LK",
     description:
       "Cloud-native second-hand vehicle marketplace with plain-English NLP search, automated bulk listing normalization, and dealer-reviewed AI edits. Built as TypeScript/NestJS microservices with API gateway, auth, marketplace, and ingestion pipelines.",
-    technologies: ["TypeScript", "NestJS", "PostgreSQL", "pgvector", "AWS"],
+    technologies: ["Ongoing", "TypeScript", "NestJS", "PostgreSQL", "pgvector", "AWS"],
     github: "https://github.com/Team-25-Second-Hand-Vehicle-Marketplace/AutoVaultLK",
     image: "/images/projects/autovault-lk.jpg",
     stars: 0,
